@@ -44,13 +44,12 @@ public class PlayerController : MonoBehaviour {
 
 		Vector3 newPos = new Vector3(transform.position.x, transform.position.y * -1,
 		                             transform.position.z + 10);
-		Instantiate (this.gameObject, newPos, Quaternion.identity);
-		Destroy(this.gameObject);
+	 	Instantiate (this.gameObject, newPos, Quaternion.identity);
+		sphereCollider.enabled = false;
 
 	}
 	
 	void OnTriggerExit (Collider other) {
-		//if (other.gameObject.name == "Window") {
-		//}
+		Destroy(this.gameObject);
 	}
 }
