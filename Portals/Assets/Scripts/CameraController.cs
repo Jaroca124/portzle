@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Camera controller MonoBehaviour
+ * Follows the marble's z value.
+ */
 public class CameraController : MonoBehaviour {
 
-	public GameObject player;
+	public GameObject player; 
 	private Vector3 offset;
 
 	// Use this for initialization
@@ -11,16 +15,6 @@ public class CameraController : MonoBehaviour {
 		offset = transform.position - player.transform.position;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
-	void FixedUpdate () { 
-
-	}
-
-
 	void LateUpdate() {
 			transform.position = new Vector3(transform.position.x,
 		                                 transform.position.y,

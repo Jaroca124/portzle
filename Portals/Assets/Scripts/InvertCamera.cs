@@ -1,27 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Invert camera script for bottom screen.
+ */
 public class InvertCamera : MonoBehaviour {
 
-	Camera camera;
+	Camera invertedCamera;
 	
 	void Start() {
-		camera = GetComponent<Camera>();
+		invertedCamera = GetComponent<Camera>();
 	}
 	
 	void OnPreCull() {
-		camera.ResetWorldToCameraMatrix();
-		camera.ResetProjectionMatrix();
-		camera.projectionMatrix = camera.projectionMatrix * Matrix4x4.Scale(new Vector3(1, -1, 1));
+		invertedCamera.ResetWorldToCameraMatrix();
+		invertedCamera.ResetProjectionMatrix();
+		invertedCamera.projectionMatrix = invertedCamera.projectionMatrix * Matrix4x4.Scale(new Vector3(1, -1, 1));
 	}
 	
-	// Set it to true so we can watch the flipped Objects
+	// Set invertCulling to true so we can watch the flipped Objects
 	void OnPreRender() {
-		GL.SetRevertBackfacing(true);
+		GL.invertCulling = true;
 	}
 	
-	// Set it to false again because we dont want to affect all other cammeras.
+	// Set invertCulling to false again because we dont want to affect all other cammeras.
 	void OnPostRender() {
-		GL.SetRevertBackfacing(false);
+		GL.invertCulling = false;
 	}
 }
