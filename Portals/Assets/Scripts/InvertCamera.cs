@@ -13,6 +13,7 @@ public class InvertCamera : MonoBehaviour {
 	}
 	
 	void OnPreCull() {
+		Debug.Log ("fuck yeah we culling", this.gameObject);
 		invertedCamera.ResetWorldToCameraMatrix();
 		invertedCamera.ResetProjectionMatrix();
 		invertedCamera.projectionMatrix = invertedCamera.projectionMatrix * Matrix4x4.Scale(new Vector3(1, -1, 1));

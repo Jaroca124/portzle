@@ -11,10 +11,17 @@ public class PlayerController : MonoBehaviour {
 	private GameObject cloneMarble;
 	private bool inPortalTransition = false;
 
+	public GameObject darkCamera, lightCamera;
+
+	public bool darkTop = true;
+
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody> ();
 		playerCollider = GetComponent<SphereCollider> ();
+		darkCamera = GameObject.Find("Dark Camera");
+		lightCamera = GameObject.Find ("Light Camera");
+
 	}
 
 	// Move the marble here
@@ -44,6 +51,14 @@ public class PlayerController : MonoBehaviour {
 
 		cloneCollider.enabled = false;
 		Destroy(cloneMarble, 2); 
+
+		if (darkTop) {
+			flipCameras (darkCamera, lightCamera);
+			darkTop = false;
+		} else {
+			flipCameras (lightCamera, darkCamera);
+			darkTop = true;
+		}
 	}
 
 	void OnTriggerEnter (Collider other) {
@@ -61,6 +76,16 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.name == "Window") {
 			Warp ();
 		}
+	}
+
+	private void flipCameras(GameObject topCamera, GameObject bottomCamera) {
+		topCamera.GetComponent<Camera>().rect = new Rect(0f, 0f, 1f, 0.5f);
+		bottomCamera.GetComponent<Camera>().rect = new Rect(0f, 0.5f, 1f, 0.5f);
+		topCamera.GetComponent<Camera>().ResetProjectionMatrix ();
+		bottomCamera.GetComponent<Camera> ().ResetProjectionMatrix ();
+		Destroy (bottomCamera.GetComponent ("InvertCamera"));
+		topCamera.AddComponent<InvertCamera> ();
+
 	}
 
 	void OnTriggerExit (Collider other) {

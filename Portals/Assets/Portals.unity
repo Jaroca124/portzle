@@ -602,6 +602,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   popOutY: 200
+  darkCamera: {fileID: 0}
+  lightCamera: {fileID: 0}
+  darkTop: 1
 --- !u!1 &989239859
 GameObject:
   m_ObjectHideFlags: 0
