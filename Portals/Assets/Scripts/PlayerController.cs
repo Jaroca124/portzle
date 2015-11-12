@@ -52,6 +52,11 @@ public class PlayerController : MonoBehaviour {
 		cloneCollider.enabled = false;
 		Destroy(cloneMarble, 2); 
 
+		/*
+		 * Code fragment to flip the cameras.
+		 * This works fine but we are deciding 
+		 * whether or not to actually flip the cameras
+		 * 
 		if (darkTop) {
 			flipCameras (darkCamera, lightCamera);
 			darkTop = false;
@@ -59,7 +64,9 @@ public class PlayerController : MonoBehaviour {
 			flipCameras (lightCamera, darkCamera);
 			darkTop = true;
 		}
+		*/
 	}
+
 
 	void OnTriggerEnter (Collider other) {
 
