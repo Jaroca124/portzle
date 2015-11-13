@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float popOutY = 200;
     public GameObject highroad_lowerbounds;
     public GameObject lowroad_lowerbounds;
+    public GameObject lowroad_upperbounds;
 
     private Rigidbody rb;
 	private SphereCollider playerCollider;
@@ -36,7 +37,11 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce (movement * speed);
 
         //If below the bounds, kill the marble and restart the scene
-        if (this.gameObject.transform.position.y < highroad_lowerbounds.transform.position.y && this.gameObject.transform.position.y > lowroad_lowerbounds.transform.position.y)
+        if (this.gameObject.transform.position.y < highroad_lowerbounds.transform.position.y && this.gameObject.transform.position.y > lowroad_upperbounds.transform.position.y)
+        {
+            Application.LoadLevel(0);
+        }
+        else if (this.gameObject.transform.position.y < lowroad_lowerbounds.transform.position.y)
         {
             Application.LoadLevel(0);
         }
