@@ -24,8 +24,11 @@ public class PlayerController : MonoBehaviour {
 		playerCollider = GetComponent<SphereCollider> ();
 		darkCamera = GameObject.Find("Dark Camera");
 		lightCamera = GameObject.Find ("Light Camera");
+        Debug.Log("Highroad Lowerbounds: " + highroad_lowerbounds.transform.position.y);
+        Debug.Log("Lowroad Lowerbounds: " + lowroad_lowerbounds.transform.position.y);
+        Debug.Log("Lowroad Upperbounds: " + lowroad_upperbounds.transform.position.y);
 
-	}
+    }
 
 	// Move the marble here
 	void FixedUpdate () 
@@ -36,12 +39,10 @@ public class PlayerController : MonoBehaviour {
 		Vector3 movement = new Vector3 (moveHorizontal, 0, moveVertical);
 		rb.AddForce (movement * speed);
 
+        Debug.Log(this.gameObject.transform.position.y);
+
         //If below the bounds, kill the marble and restart the scene
-        if (this.gameObject.transform.position.y < highroad_lowerbounds.transform.position.y && this.gameObject.transform.position.y > lowroad_upperbounds.transform.position.y)
-        {
-            Application.LoadLevel(0);
-        }
-        else if (this.gameObject.transform.position.y < lowroad_lowerbounds.transform.position.y)
+        if ((this.gameObject.transform.position.y < highroad_lowerbounds.transform.position.y && this.gameObject.transform.position.y > lowroad_upperbounds.transform.position.y) || (this.gameObject.transform.position.y < lowroad_lowerbounds.transform.position.y && this.gameObject.transform.position.y < lowroad_upperbounds.transform.position.y))
         {
             Application.LoadLevel(0);
         }
