@@ -5,8 +5,10 @@ public class PlayerController : MonoBehaviour {
 
 	public float speed = 10; 
 	public float popOutY = 200;
+    public GameObject highroad_lowerbounds;
+    public GameObject lowroad_lowerbounds;
 
-	private Rigidbody rb;
+    private Rigidbody rb;
 	private SphereCollider playerCollider;
 	private GameObject cloneMarble;
 	private bool inPortalTransition = false;
@@ -32,10 +34,16 @@ public class PlayerController : MonoBehaviour {
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0, moveVertical);
 		rb.AddForce (movement * speed);
-	}
 
-	// On portal collision, warp the player from one portal to another
-	void Warp() {
+        //If below the bounds, kill the marble and restart the scene
+        if (this.gameObject.transform.position.y < highroad_lowerbounds.transform.y && this.gameObject.transform.position.y > lowroad_lowerbounds.transform.y)
+        {
+            Application.LoadLevel(Application.Portals);
+        }
+    }
+
+    // On portal collision, warp the player from one portal to another
+    void Warp() {
 		inPortalTransition = true; 
 
 		cloneMarble = (GameObject)Instantiate (this.gameObject, transform.position, Quaternion.identity);
