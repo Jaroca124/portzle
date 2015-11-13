@@ -5,8 +5,8 @@ public class PlayerController : MonoBehaviour {
 
 	public float speed = 10; 
 	public float popOutY = 200;
+	public Rigidbody rb;
 
-	private Rigidbody rb;
 	private SphereCollider playerCollider;
 	private GameObject cloneMarble;
 	private bool inPortalTransition = false;
