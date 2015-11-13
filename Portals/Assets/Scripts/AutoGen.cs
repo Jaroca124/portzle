@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class AutoGen : MonoBehaviour {
-
-	public Transform ground;
+	
 	public Transform marble;
-	bool spawned = false;
+	public GameObject tileWithPortal;
+	public GameObject tileRed;
+	public GameObject tileGreen;
+	public GameObject tileBlue;
 
 	// Use this for initialization
 	void Start () {
