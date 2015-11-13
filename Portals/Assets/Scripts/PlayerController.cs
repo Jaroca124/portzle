@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce (movement * speed);
 
         //If below the bounds, kill the marble and restart the scene
-        if (this.gameObject.transform.position.y < highroad_lowerbounds.transform.y && this.gameObject.transform.position.y > lowroad_lowerbounds.transform.y)
+        if (this.gameObject.transform.position.y < highroad_lowerbounds.transform.position.y && this.gameObject.transform.position.y > lowroad_lowerbounds.transform.position.y)
         {
-            Application.LoadLevel(Application.Portals);
+            Application.LoadLevel(0);
         }
     }
 
