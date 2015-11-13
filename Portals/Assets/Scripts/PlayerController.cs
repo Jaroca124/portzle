@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody rb;
 	private SphereCollider playerCollider;
-	private GameObject cloneMarble;
+	private GameObject cloneMarble = null;
 	private bool inPortalTransition = false;
+    private bool on_high_road = true;
 
 	public GameObject darkCamera, lightCamera;
 
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Highroad Lowerbounds: " + highroad_lowerbounds.transform.position.y);
         Debug.Log("Lowroad Lowerbounds: " + lowroad_lowerbounds.transform.position.y);
         Debug.Log("Lowroad Upperbounds: " + lowroad_upperbounds.transform.position.y);
+        
 
     }
 
@@ -39,19 +41,31 @@ public class PlayerController : MonoBehaviour {
 		Vector3 movement = new Vector3 (moveHorizontal, 0, moveVertical);
 		rb.AddForce (movement * speed);
 
-        Debug.Log(this.gameObject.transform.position.y);
-
         //If below the bounds, kill the marble and restart the scene
-        if ((this.gameObject.transform.position.y < highroad_lowerbounds.transform.position.y && this.gameObject.transform.position.y > lowroad_upperbounds.transform.position.y) || (this.gameObject.transform.position.y < lowroad_lowerbounds.transform.position.y && this.gameObject.transform.position.y < lowroad_upperbounds.transform.position.y))
+        if (on_high_road && this.gameObject.transform.position.y < highroad_lowerbounds.transform.position.y)
         {
+            Debug.Log("First");
+            Application.LoadLevel(0);
+        }
+
+        if (!on_high_road && this.gameObject.transform.position.y < lowroad_lowerbounds.transform.position.y)
+        {
+            Debug.Log("Second");
             Application.LoadLevel(0);
         }
     }
 
     // On portal collision, warp the player from one portal to another
     void Warp() {
-		inPortalTransition = true; 
-
+        if (on_high_road)
+        {
+            on_high_road = false;
+        }
+        else
+        {
+            on_high_road = true;
+        }
+		inPortalTransition = true;
 		cloneMarble = (GameObject)Instantiate (this.gameObject, transform.position, Quaternion.identity);
 		SphereCollider cloneCollider = cloneMarble.GetComponent<SphereCollider> (); 
 		Vector3 newPosition = new Vector3 (transform.position.x, transform.position.y * -1,
