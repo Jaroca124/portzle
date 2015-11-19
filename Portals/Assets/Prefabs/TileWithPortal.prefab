@@ -266,11 +266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3cab96e93774f43ae92b3c2f8c99b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marble: {fileID: 0}
-  tileWithPortal: {fileID: 0}
-  tileRed: {fileID: 0}
-  tileGreen: {fileID: 0}
-  tileBlue: {fileID: 0}
+  marbleTransform: {fileID: 0}
+  tile: {fileID: 0}
+  portalTile: {fileID: 0}
+  wedgeTile: {fileID: 0}
+  holeTile: {fileID: 0}
+  tileTypes: []
 --- !u!136 &13693038
 CapsuleCollider:
   m_ObjectHideFlags: 1

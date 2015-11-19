@@ -4,8 +4,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	private static float MAX_VELOCITY = 25;
-	public float speed = 10; 
+	private static float MAX_VELOCITY = 20;
+	public float speed = 5; 
 	public float counter = -100;
 	public float popOutY = 200;
 	public Rigidbody rb;
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () 
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal");
-		//float moveVertical = Input.GetAxis ("Vertical");
+		float moveVertical = Input.GetAxis ("Vertical");
 
 		Vector3 movementVertical = new Vector3 (0, 0, 3);
 		Vector3 movementHorizontal = new Vector3 (moveHorizontal, 0, 0);
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
 		inPortalTransition = true; 
 
 		cloneMarble = (GameObject)Instantiate (this.gameObject, transform.position, Quaternion.identity);
-		SphereCollider cloneCollider = cloneMarble.GetComponent<SphereCollider> (); 
+	   	SphereCollider cloneCollider = cloneMarble.GetComponent<SphereCollider> (); 
 		Vector3 newPosition = new Vector3 (transform.position.x, transform.position.y * -1,
 		                              transform.position.z);
 
@@ -110,8 +110,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerExit (Collider other) {
-		Collisions.IgnoreCollisionWithGroup (playerCollider, "Surfaces", false);
-		Collisions.IgnoreCollisionWithGroup (playerCollider, "Portals", false);
+
+		if (other.gameObject.name == "Window") {
+			Collisions.IgnoreCollisionWithGroup (playerCollider, "Surfaces", false);
+			Collisions.IgnoreCollisionWithGroup (playerCollider, "Portals", false);
+		} 
+
 	}
 
 }
