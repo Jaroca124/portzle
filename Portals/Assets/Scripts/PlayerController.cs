@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class PlayerController : MonoBehaviour {
 
+	private static float MAX_VELOCITY = 25;
 	public float speed = 10; 
+	public float counter = -100;
 	public float popOutY = 200;
 	public Rigidbody rb;
+
 
 	private SphereCollider playerCollider;
 	private GameObject cloneMarble;
@@ -28,10 +32,20 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () 
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		//float moveVertical = Input.GetAxis ("Vertical");
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0, moveVertical);
-		rb.AddForce (movement * speed);
+		Vector3 movementVertical = new Vector3 (0, 0, 3);
+		Vector3 movementHorizontal = new Vector3 (moveHorizontal, 0, 0);
+		
+		if (rb.velocity.z < MAX_VELOCITY) {
+			rb.AddForce (movementVertical * speed);
+		}
+
+		rb.AddForce (movementHorizontal * speed);
+
+		Debug.Log (rb.velocity.z, this); 
+		//rb.AddForce (movement * counter);
+
 	}
 
 	// On portal collision, warp the player from one portal to another

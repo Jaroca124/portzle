@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -199,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
+  m_ForceModuleActive: 0
 --- !u!114 &120411338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +215,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_AllowActivationOnMobileDevice: 0
+  m_ForceModuleActive: 0
 --- !u!114 &120411339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +312,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -470,8 +469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marbleTransform: {fileID: 0}
-  tileRed: {fileID: 0}
-  tileGreen: {fileID: 0}
+  tileRed: {fileID: 100002, guid: 0f2db1a86a8c9174086a63877d81d52a, type: 3}
+  tileGreen: {fileID: 100000, guid: 64de7a6a5b68a4145baa7525a8a28811, type: 3}
   tileBlue: {fileID: 0}
   tileTypes: []
 --- !u!1 &591395518
@@ -544,6 +543,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -556,7 +556,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 591395518}
   m_LocalRotation: {x: .216439635, y: 0, z: 0, w: .976296008}
-  m_LocalPosition: {x: 17.519455, y: -77.6699982, z: -54}
+  m_LocalPosition: {x: -.129999995, y: -20.4599991, z: -13.8999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 46069536}
@@ -616,7 +616,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 110.599998, y: 164.600006}
+  m_AnchoredPosition: {x: 110.599998, y: 151.899994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &630533312
@@ -632,6 +632,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 13
@@ -811,6 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  counter: -5
   popOutY: 200
   rb: {fileID: 0}
   darkCamera: {fileID: 0}
@@ -1949,6 +1956,7 @@ GameObject:
   - 33: {fileID: 1036403431}
   - 65: {fileID: 1036403430}
   - 23: {fileID: 1036403429}
+  - 114: {fileID: 1036403432}
   m_Layer: 0
   m_Name: Ground1
   m_TagString: Untagged
@@ -1962,9 +1970,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1036403427}
-  m_LocalRotation: {x: -.00234171306, y: 0, z: 0, w: .999997258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -25, z: 0}
-  m_LocalScale: {x: 13.5263014, y: .454173982, z: 10.5708704}
+  m_LocalScale: {x: 12, y: .5, z: 54}
   m_Children: []
   m_Father: {fileID: 1384573134}
   m_RootOrder: 0
@@ -2011,6 +2019,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1036403427}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1036403432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036403427}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3cab96e93774f43ae92b3c2f8c99b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marbleTransform: {fileID: 0}
+  tileRed: {fileID: 0}
+  tileGreen: {fileID: 0}
+  tileBlue: {fileID: 0}
+  tileTypes: []
 --- !u!1001 &1091890550
 Prefab:
   m_ObjectHideFlags: 0
@@ -2062,7 +2086,8 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3397584, guid: 549d8be6d48524ee19b45c10adb3fcd3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 549d8be6d48524ee19b45c10adb3fcd3, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1133889149
@@ -2501,6 +2526,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1674482324}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1705297044 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 135412, guid: 549d8be6d48524ee19b45c10adb3fcd3, type: 2}
+  m_PrefabInternal: {fileID: 1091890550}
+--- !u!33 &1705297045
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1705297044}
+  m_Mesh: {fileID: 0}
+--- !u!33 &1705297048
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1705297044}
+  m_Mesh: {fileID: 0}
 --- !u!4 &1747673966 stripped
 Transform:
   m_PrefabParentObject: {fileID: 497582, guid: 549d8be6d48524ee19b45c10adb3fcd3, type: 2}

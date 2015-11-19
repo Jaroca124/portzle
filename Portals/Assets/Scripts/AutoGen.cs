@@ -19,8 +19,6 @@ public class AutoGen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log("FUCK", this);
-
 		marbleTransform = GameObject.Find("marble").transform;
 		tileBlue = GameObject.Find("TileBlue");
 		tileRed = GameObject.Find("RedTile");
@@ -35,6 +33,9 @@ public class AutoGen : MonoBehaviour {
 		GameObject leftLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(-4F, 25F, zPosition), Quaternion.identity);
 		GameObject middleLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(0F, 25F, zPosition), Quaternion.identity);
 		GameObject rightLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(4F, 25F, zPosition), Quaternion.identity);
+		GameObject bottomleftLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(-4F, -25F, zPosition), Quaternion.identity);
+		GameObject bottommiddleLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(0F, -25F, zPosition), Quaternion.identity);
+		GameObject bottomrightLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(4F, -25F, zPosition), Quaternion.identity);
 	}
 	
 	// Update is called once per frame
@@ -43,7 +44,7 @@ public class AutoGen : MonoBehaviour {
 		double distanceTraveled = (int)(marbleTransform.position.z) - lastMarblePosition;
 
 		int numTilesToGenerate = (int)(distanceTraveled / 6);
-		Debug.Log(numTilesToGenerate, this);
+		Debug.Log(distanceTraveled, this);
 
 	
 		if(numTilesToGenerate > 0) {
@@ -53,7 +54,7 @@ public class AutoGen : MonoBehaviour {
 				lastSpawned = (int) marbleTransform.position.z;
 			}
 
-			double remainder = distanceTraveled - (distanceTraveled/6)*6;
+			double remainder = distanceTraveled - (distanceTraveled/6)*5.5;
 			lastMarblePosition = marbleTransform.position.z - remainder;
 
 		}
