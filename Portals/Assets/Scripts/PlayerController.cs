@@ -44,13 +44,13 @@ public class PlayerController : MonoBehaviour {
         //If below the bounds, kill the marble and restart the scene
         if (on_high_road && this.gameObject.transform.position.y < highroad_lowerbounds.transform.position.y)
         {
-            Debug.Log("First");
+            //Debug.Log("First");
             Application.LoadLevel(0);
         }
 
         if (!on_high_road && this.gameObject.transform.position.y < lowroad_lowerbounds.transform.position.y)
         {
-            Debug.Log("Second");
+            //Debug.Log("Second");
             Application.LoadLevel(0);
         }
     }
