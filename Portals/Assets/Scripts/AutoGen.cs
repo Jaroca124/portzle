@@ -12,10 +12,15 @@ public class AutoGen : MonoBehaviour {
 	public GameObject[] tileTypes;
 	public System.Random random = new System.Random();
 
+
+	private double lastMarblePosition = -8;
+	private int spawnLocation = 30;
 	private int lastSpawned = -100;
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log("FUCK", this);
+
 		marbleTransform = GameObject.Find("marble").transform;
 		tileBlue = GameObject.Find("TileBlue");
 		tileRed = GameObject.Find("RedTile");
@@ -27,19 +32,33 @@ public class AutoGen : MonoBehaviour {
 
 	void createTileRow(float zPosition) {
 
-		GameObject leftLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(-4F, 0F, zPosition), Quaternion.identity);
-		GameObject middleLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(0F, 0F, zPosition), Quaternion.identity);
-		GameObject rightLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(4F, 0F, zPosition), Quaternion.identity);
+		GameObject leftLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(-4F, 25F, zPosition), Quaternion.identity);
+		GameObject middleLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(0F, 25F, zPosition), Quaternion.identity);
+		GameObject rightLane = (GameObject) Instantiate(tileTypes[random.Next(0, 3)], new Vector3(4F, 25F, zPosition), Quaternion.identity);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if ((int) marbleTransform.position.z % 6 == 0 && lastSpawned != (int) marbleTransform.position.z) {
-			print ("Creating");
-			createTileRow((int) marbleTransform.position.z + 42);
-			lastSpawned = (int) marbleTransform.position.z;
+		double distanceTraveled = (int)(marbleTransform.position.z) - lastMarblePosition;
+
+		int numTilesToGenerate = (int)(distanceTraveled / 6);
+		Debug.Log(numTilesToGenerate, this);
+
+	
+		if(numTilesToGenerate > 0) {
+			for(int i = 0; i < numTilesToGenerate; i++) {
+				spawnLocation += 6;
+				createTileRow((int) spawnLocation);
+				lastSpawned = (int) marbleTransform.position.z;
+			}
+
+			double remainder = distanceTraveled - (distanceTraveled/6)*6;
+			lastMarblePosition = marbleTransform.position.z - remainder;
+
 		}
+
+	}
 
 		/* TODO: fix this
 		if (marble.position.z > 18F && !spawned) {
@@ -47,5 +66,4 @@ public class AutoGen : MonoBehaviour {
 			groundSegment.localScale += new Vector3(0, 0, 1);
 			spawned = true;
 		}*/
-	}
 }
