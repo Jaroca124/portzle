@@ -81,6 +81,12 @@ public class PlayerController : MonoBehaviour {
 		*/
 	}
 
+	void OnCollisionEnter (Collision other) {
+		if (other.gameObject.name == "Wedge") {
+			rb.AddForce(new Vector3(0, 0,  100));
+		}
+	}
+
 
 	void OnTriggerEnter (Collider other) {
 
@@ -94,9 +100,11 @@ public class PlayerController : MonoBehaviour {
 			return;
 		} 
 
-		if (other.gameObject.name == "Window") {
+		if (other.gameObject.name == "EntranceWindow") {
 			Warp ();
 		}
+
+
 	}
 
 	private void flipCameras(GameObject topCamera, GameObject bottomCamera) {
@@ -111,11 +119,13 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerExit (Collider other) {
 
-		if (other.gameObject.name == "Window") {
+		if (other.gameObject.name == "ExitWindow") {
 			Collisions.IgnoreCollisionWithGroup (playerCollider, "Surfaces", false);
-			Collisions.IgnoreCollisionWithGroup (playerCollider, "Portals", false);
+			if(!inPortalTransition) {
+				Collisions.IgnoreCollisionWithGroup (playerCollider, "Portals", false);
+			}
 		} 
-
+		 
 	}
 
 }
