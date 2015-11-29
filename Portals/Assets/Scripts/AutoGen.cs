@@ -41,7 +41,7 @@ public class AutoGen : MonoBehaviour {
 		wallTile = GameObject.Find ("WallTile");
 	}
 
-	void createTileRow(float zPosition) {
+	void CreateTileRow(float zPosition) {
 		int len = tileTypes.Length;
 		float portalXLoc = 2;
 		if(Random.Range (0,200) % 10 == 0) {
@@ -52,6 +52,10 @@ public class AutoGen : MonoBehaviour {
 			GameObject portal2 = (GameObject)Instantiate (portal, 
 			                                              new Vector3 (portalXLoc, -worldYPos+worldHeight/2 , zPosition), 
 			                                              Quaternion.identity);
+			GameObject portalPair = new GameObject();
+			portal1.transform.SetParent (portalPair.transform);
+			portal2.transform.SetParent (portalPair.transform);
+			portalPair.transform.SetParent(portals.transform);
 				
 		}
 		for (int y = -1; y <= 1; y+=2) {
@@ -95,7 +99,7 @@ public class AutoGen : MonoBehaviour {
 		if(numTilesToGenerate > 0) {
 			for(int i = 0; i < numTilesToGenerate; i++) {
 				spawnLocation += 6;
-				createTileRow((int) spawnLocation);
+				CreateTileRow((int) spawnLocation);
 				lastSpawned = (int) marbleTransform.position.z;
 			}
 

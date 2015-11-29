@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 
 		cloneMarble = (GameObject)Instantiate (this.gameObject, transform.position, Quaternion.identity);
 	   	SphereCollider cloneCollider = cloneMarble.GetComponent<SphereCollider> (); 
-		Vector3 newPosition = new Vector3 (transform.position.x, transform.position.y * -1 + 2,
+		Vector3 newPosition = new Vector3 (transform.position.x, transform.position.y * -1 + 1,
 		                              transform.position.z);
 
 		transform.position = newPosition;
