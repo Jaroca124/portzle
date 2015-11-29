@@ -13,7 +13,9 @@ public static class Collisions {
 		Collider[] colliders = GameObject.Find (groupName).GetComponentsInChildren<Collider>();
 		
 		foreach (Collider groupCollider in colliders) {
-			Physics.IgnoreCollision (collider, groupCollider, ignore);
+			if(groupCollider.enabled) {
+				Physics.IgnoreCollision (collider, groupCollider, ignore);
+			}
 		}
 	}
 
