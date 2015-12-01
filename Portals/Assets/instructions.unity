@@ -156,7 +156,6 @@ GameObject:
   - 223: {fileID: 891175175}
   - 114: {fileID: 891175174}
   - 114: {fileID: 891175173}
-  - 114: {fileID: 891175172}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -164,19 +163,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &891175172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 891175171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46b24624be131454aa362ab8e517970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  start_texture: {fileID: 2800000, guid: 4a70a3c0ba4a25045b6675d9fdf11522, type: 3}
-  instruction_texture: {fileID: 2800000, guid: e7b707f2a3f28c545a546d2178dec5a5, type: 3}
 --- !u!114 &891175173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1089878286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2247e3bacdf2dc84db33edd314e380ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 44016705ac9b1494dab6bcb82cb5069c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   back_texture: {fileID: 2800000, guid: d0c97851b155b3a4daf8367f34900958, type: 3}
