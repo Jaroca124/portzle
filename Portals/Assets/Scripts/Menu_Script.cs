@@ -16,9 +16,13 @@ public class Menu_Script : MonoBehaviour {
     {
     
     }
-
+    /*
     void OnGUI()
     {
+        if (Application.loadedLevelName == "instructions")
+        {
+            hide_button()
+        }
         if (GUI.Button(new Rect(Screen.width * .3f, Screen.height * .3f, 100, 100), start_texture))
         {
             Application.LoadLevel("Portals");
@@ -28,5 +32,25 @@ public class Menu_Script : MonoBehaviour {
             Application.LoadLevel("instructions");
         }
     }
-}
+    */
+    void hide_button(Button but, bool isHidden)
+    {
+        if (isHidden)
+        {
+            but.enabled = false;
+            but.GetComponentInChildren<CanvasRenderer>().SetAlpha(0);
+            but.GetComponentInChildren<Text>().color = Color.clear;
+        }
+        else
+        {
+            but.enabled = true;
+            but.GetComponentInChildren<CanvasRenderer>().SetAlpha(1);
+            but.GetComponentInChildren<Text>().color = Color.black;
+        }
+    }
 
+    public void change_level()
+    {
+        Application.LoadLevel("instructions");
+    }
+}
