@@ -40,23 +40,24 @@ public class AutoGen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (marbleTransform != null) {
+			double distanceTraveled = (int)(marbleTransform.position.z) - lastMarblePosition;
 
-		double distanceTraveled = (int)(marbleTransform.position.z) - lastMarblePosition;
-
-		int numTilesToGenerate = (int)(distanceTraveled / 6);
-		Debug.Log(distanceTraveled, this);
+			int numTilesToGenerate = (int)(distanceTraveled / 6);
+			Debug.Log (distanceTraveled, this);
 
 	
-		if(numTilesToGenerate > 0) {
-			for(int i = 0; i < numTilesToGenerate; i++) {
-				spawnLocation += 6;
-				createTileRow((int) spawnLocation);
-				lastSpawned = (int) marbleTransform.position.z;
+			if (numTilesToGenerate > 0) {
+				for (int i = 0; i < numTilesToGenerate; i++) {
+					spawnLocation += 6;
+					createTileRow ((int)spawnLocation);
+					lastSpawned = (int)marbleTransform.position.z;
+				}
+
+				double remainder = distanceTraveled - (distanceTraveled / 6) * 5.5;
+				lastMarblePosition = marbleTransform.position.z - remainder;
+
 			}
-
-			double remainder = distanceTraveled - (distanceTraveled/6)*5.5;
-			lastMarblePosition = marbleTransform.position.z - remainder;
-
 		}
 
 	}

@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour {
 	public float counter = -100;
 	public float popOutY = 200;
 	public Rigidbody rb;
+	public GameObject player;
 
 
 	private SphereCollider playerCollider;
 	private GameObject cloneMarble;
 	private bool inPortalTransition = false;
+	private bool end = false;
 
 	public GameObject darkCamera, lightCamera;
 
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour {
 		playerCollider = GetComponent<SphereCollider> ();
 		darkCamera = GameObject.Find("Dark Camera");
 		lightCamera = GameObject.Find ("Light Camera");
+		if (end == true) {
+			return;
+		}
 
 	}
 
@@ -45,6 +50,15 @@ public class PlayerController : MonoBehaviour {
 
 		Debug.Log (rb.velocity.z, this); 
 		//rb.AddForce (movement * counter);
+		if (player != null && inPortalTransition == false) {
+			if (player.transform.position.y > 0 && player.transform.position.y < 18) {
+				Destroy (player);
+			}
+			if (player.transform.position.y < -35) {
+				Destroy (player);
+				end = true;
+			}
+		}
 
 	}
 

@@ -820,6 +820,7 @@ MonoBehaviour:
   counter: -5
   popOutY: 200
   rb: {fileID: 0}
+  player: {fileID: 0}
   darkCamera: {fileID: 0}
   lightCamera: {fileID: 0}
   darkTop: 1
