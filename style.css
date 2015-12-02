@@ -144,8 +144,16 @@ section {
 #logo_text {
 	display: inline-block;
 	float: left;
-	margin-left: 60px;
-    margin-top: 5px;
-    height: 47px;
-    width: 80px;
+	margin-left: 35px;
+    margin-top: -5px;
+    height: 88.5px;
+    width: 150px;
+}
+
+#apple_badge {
+    float: right;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 17px;
+    margin-right: 5px;
 }
