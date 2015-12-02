@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject darkCamera, lightCamera;
 
 	public bool darkTop = true;
+	public bool grounded = false;
 
 	void Start () 
 	{
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
+		bool jump = Input.GetButton ("Jump");
 
 		Vector3 movementVertical = new Vector3 (0, 0, 3);
 		Vector3 movementHorizontal = new Vector3 (moveHorizontal, 0, 0);
@@ -43,9 +45,9 @@ public class PlayerController : MonoBehaviour {
 
 		rb.AddForce (movementHorizontal * speed);
 
-		Debug.Log (rb.velocity.z, this); 
-		//rb.AddForce (movement * counter);
-
+		if (jump && rb.velocity.y <= 0) {
+			rb.AddForce(new Vector3(0, 100, 0));
+		}
 	}
 
 	// On portal collision, warp the player from one portal to another
@@ -83,7 +85,9 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter (Collision other) {
 		if (other.gameObject.name == "Wedge") {
-			rb.AddForce(new Vector3(0, 0,  100));
+			rb.AddForce(new Vector3(0, 0, 100));
+		} else if (other.gameObject.name == "trampoline") {
+			rb.AddForce(new Vector3(0, 50, 0));
 		}
 	}
 

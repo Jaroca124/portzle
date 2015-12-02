@@ -11,6 +11,8 @@ public class AutoGen : MonoBehaviour {
 	public GameObject holeTile;
 	public GameObject darkTile;
 	private GameObject wallTile;
+	private GameObject trampolineTile;
+	private GameObject rockTile;
 
 	public GameObject portals;
 	public GameObject surfaces;
@@ -39,10 +41,12 @@ public class AutoGen : MonoBehaviour {
 		portals = GameObject.Find ("Portals");
 		surfaces = GameObject.Find ("Surfaces");
 		wallTile = GameObject.Find ("WallTile");
+		trampolineTile = GameObject.Find ("TrampolineTile");
+		rockTile = GameObject.Find ("RockTile");
 	}
 
 	void CreateTileRow(float zPosition) {
-		int len = tileTypes.Length;
+		Debug.Log (tile.name);
 		float portalXLoc = 2;
 		if(Random.Range (0,200) % 10 == 0) {
 			portalXLoc = random.Next(-1, 1) * tileWidth;
@@ -62,29 +66,34 @@ public class AutoGen : MonoBehaviour {
 			for (int x = -1; x <= 1; x++) {
 				GameObject lane;
 				int rand = Random.Range (0, 200);
-				if(portalXLoc == x) {
+				if(portalXLoc == x * 4) {
 					lane = (GameObject)Instantiate (tile,
 					                                new Vector3 (portalXLoc, y * worldYPos, zPosition), 
+					                                Quaternion.identity);
+				} else if (rand % 15 == 0) {
+					lane = (GameObject)Instantiate (holeTile, 
+					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition), 
 					                                Quaternion.identity);
 				}
 				else if (rand % 37 == 0) {
 					lane = (GameObject)Instantiate (wedgeTile, 
 					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition),
 					                                Quaternion.identity);
-				} else if (rand % 50 == 0) {
-					lane = (GameObject)Instantiate (wallTile, 
+				} else if (rand % 23 == 0) {
+					lane = (GameObject)Instantiate (trampolineTile, 
 					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition), 
 					                                Quaternion.identity);
-				} else if (rand % 15 == 0) {
-					lane = (GameObject)Instantiate (holeTile, 
+				} else if(rand % 29 == 0) {
+					lane = (GameObject)Instantiate (rockTile, 
 					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition), 
 					                                Quaternion.identity);
+				
 				} else {
 					lane = (GameObject)Instantiate (tile,
 					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition), 
 					                                Quaternion.identity);
 				}
-				lane.transform.SetParent (surfaces.transform);
+				//lane.transform.SetParent (surfaces.transform);
 			}
 		}
 	}
