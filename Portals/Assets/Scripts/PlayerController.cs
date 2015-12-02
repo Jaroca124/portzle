@@ -53,8 +53,8 @@ public class PlayerController : MonoBehaviour {
 	// On portal collision, warp the player from one portal to another
 	void Warp() {
 		inPortalTransition = true; 
-
-		cloneMarble = (GameObject)Instantiate (this.gameObject, transform.position, Quaternion.identity);
+		GameObject dummy = GameObject.Find ("Dummy"); 
+		cloneMarble = (GameObject)Instantiate (dummy, transform.position, Quaternion.identity);
 	   	SphereCollider cloneCollider = cloneMarble.GetComponent<SphereCollider> (); 
 		Vector3 newPosition = new Vector3 (transform.position.x, transform.position.y * -1 + 1,
 		                              transform.position.z);

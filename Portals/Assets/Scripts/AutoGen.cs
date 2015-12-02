@@ -27,12 +27,13 @@ public class AutoGen : MonoBehaviour {
 	private int lastSpawned = -100;
 
 	private static float tileWidth = 4f;
-	private static float worldYPos = 25f;
+	private static float worldXPos = 50f;
+	private static float worldYPos = 0f;
 	private static float worldHeight = 1f;
 
 	// Use this for initialization
 	void Start () {
-		marbleTransform = GameObject.Find("marble").transform;
+		marbleTransform = GameObject.Find("Marble").transform;
 		tile = GameObject.Find("Tile");
 		darkTile = GameObject.Find("DarkTile");
 		portal = GameObject.Find("Portal");
@@ -46,15 +47,14 @@ public class AutoGen : MonoBehaviour {
 	}
 
 	void CreateTileRow(float zPosition) {
-		Debug.Log (tile.name);
 		float portalXLoc = 2;
 		if(Random.Range (0,200) % 10 == 0) {
-			portalXLoc = random.Next(-1, 1) * tileWidth;
+			portalXLoc = random.Next(-1, 1) * tileWidth + worldXPos;
 			GameObject portal1 = (GameObject)Instantiate (portal, 
-			                                              new Vector3 (portalXLoc, worldYPos+(worldHeight/2), zPosition), 
+			                                              new Vector3 (portalXLoc, worldYPos + .5f, zPosition), 
 			                                              Quaternion.identity);
 			GameObject portal2 = (GameObject)Instantiate (portal, 
-			                                              new Vector3 (portalXLoc, -worldYPos+worldHeight/2 , zPosition), 
+			                                              new Vector3 (-portalXLoc, worldYPos + .5f, zPosition), 
 			                                              Quaternion.identity);
 			GameObject portalPair = new GameObject();
 			portal1.transform.SetParent (portalPair.transform);
@@ -62,38 +62,40 @@ public class AutoGen : MonoBehaviour {
 			portalPair.transform.SetParent(portals.transform);
 				
 		}
-		for (int y = -1; y <= 1; y+=2) {
+		for (int w = -1; w <= 1; w += 2) {
 			for (int x = -1; x <= 1; x++) {
 				GameObject lane;
 				int rand = Random.Range (0, 200);
 				if(portalXLoc == x * 4) {
 					lane = (GameObject)Instantiate (tile,
-					                                new Vector3 (portalXLoc, y * worldYPos, zPosition), 
+					                                new Vector3 (portalXLoc, worldYPos, zPosition), 
 					                                Quaternion.identity);
-				} else if (rand % 15 == 0) {
+				}
+				float tileXPos = (worldXPos * w) + (x * tileWidth);
+				if (rand % 15 == 0) {
 					lane = (GameObject)Instantiate (holeTile, 
-					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition), 
+					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				}
 				else if (rand % 37 == 0) {
 					lane = (GameObject)Instantiate (wedgeTile, 
-					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition),
+					                                new Vector3 (tileXPos, worldYPos, zPosition),
 					                                Quaternion.identity);
 				} else if (rand % 23 == 0) {
 					lane = (GameObject)Instantiate (trampolineTile, 
-					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition), 
+					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				} else if(rand % 29 == 0) {
 					lane = (GameObject)Instantiate (rockTile, 
-					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition), 
+					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				
 				} else {
 					lane = (GameObject)Instantiate (tile,
-					                                new Vector3 (x * tileWidth, y * worldYPos, zPosition), 
+					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				}
-				//lane.transform.SetParent (surfaces.transform);
+				lane.transform.SetParent (surfaces.transform);
 			}
 		}
 	}
