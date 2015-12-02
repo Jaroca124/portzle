@@ -427,8 +427,6 @@ GameObject:
   - 4: {fileID: 1779976926}
   - 212: {fileID: 1779976925}
   - 114: {fileID: 1779976924}
-  - 114: {fileID: 1779976927}
-  - 61: {fileID: 1779976928}
   m_Layer: 5
   m_Name: Instructions_Button
   m_TagString: Untagged
@@ -475,7 +473,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1779976927}
+      - m_Target: {fileID: 0}
         m_MethodName: change_level
         m_Mode: 5
         m_Arguments:
@@ -526,32 +524,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 855717398}
   m_RootOrder: 1
---- !u!114 &1779976927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1779976923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46b24624be131454aa362ab8e517970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  start_texture: {fileID: 0}
-  instruction_texture: {fileID: 0}
---- !u!61 &1779976928
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1779976923}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.0310013294, y: -.0310017113}
-  serializedVersion: 2
-  m_Size: {x: 4.22999477, y: 4.29199171}
 --- !u!1 &1987869385
 GameObject:
   m_ObjectHideFlags: 0
