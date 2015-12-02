@@ -43,3 +43,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7a7a', end
 	z-index: 1;
 	display: none;
 }
+
+#banner_text {
+	top: 5%; /*30%*/
+	text-align: center;
+	display: block;
+	height: 100px;
+	width: 100%;
+	z-index: 1;
+	position: relative;
+	display: none;
+	font-size: 40px;
+}
