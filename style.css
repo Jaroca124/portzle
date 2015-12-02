@@ -21,10 +21,11 @@ section {
     display: block;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8223b2+0,4b50dd+100 */
     background: #8223b2; /* Old browsers */
-    background: -moz-linear-gradient(top,  #8223b2 0%, #4b50dd 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #8223b2 0%,#4b50dd 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #8223b2 0%,#4b50dd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8223b2', endColorstr='#4b50dd',GradientType=0 ); /* IE6-9 */
+    background: -moz-linear-gradient(left,  #8223b2 0%, #4b50dd 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #8223b2 0%,#4b50dd 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #8223b2 0%,#4b50dd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8223b2', endColorstr='#4b50dd',GradientType=1 ); /* IE6-9 */
+
 
 }
 
@@ -44,30 +45,30 @@ section {
 }
 
 #overlay1 {
-    background: rgba(255,122,122,1);
-    background: -moz-linear-gradient(-45deg, rgba(255,122,122,1) 0%, rgba(209,15,60,0.53) 50%, rgba(255,122,122,0.05) 100%);
+    background: rgba(0,0,0,.5);
+    /*background: -moz-linear-gradient(-45deg, rgba(255,122,122,1) 0%, rgba(209,15,60,0.53) 50%, rgba(255,122,122,0.05) 100%);
     background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,122,122,1)), color-stop(50%, rgba(209,15,60,0.53)), color-stop(100%, rgba(255,122,122,0.05)));
     background: -webkit-linear-gradient(-45deg, rgba(255,122,122,1) 0%, rgba(209,15,60,0.53) 50%, rgba(255,122,122,0.05) 100%);
     background: -o-linear-gradient(-45deg, rgba(255,122,122,1) 0%, rgba(209,15,60,0.53) 50%, rgba(255,122,122,0.05) 100%);
     background: -ms-linear-gradient(-45deg, rgba(255,122,122,1) 0%, rgba(209,15,60,0.53) 50%, rgba(255,122,122,0.05) 100%);
     background: linear-gradient(135deg, rgba(255,122,122,1) 0%, rgba(209,15,60,0.53) 50%, rgba(255,122,122,0.05) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7a7a', endColorstr='#ff7a7a', GradientType=1 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7a7a', endColorstr='#ff7a7a', GradientType=1 );*/
 	position: absolute;
 	height: 100%;
 	width: 100%;
 	z-index: 1;
-	display: none;
+	display: block;
 }
 
 #banner_text {
-	top: 5%; /*30%*/
+	top: 20%; /*30%*/
 	text-align: center;
 	display: block;
 	height: 100px;
 	width: 100%;
 	z-index: 1;
 	position: relative;
-	display: none;
+	display: block;
 	font-size: 40px;
 }
 
@@ -138,4 +139,13 @@ section {
 	bottom: 0;
 	left: 90%;
 	z-index: 10;
-}    
+}
+
+#logo_text {
+	display: inline-block;
+	float: left;
+	margin-left: 60px;
+    margin-top: 5px;
+    height: 47px;
+    width: 80px;
+}
