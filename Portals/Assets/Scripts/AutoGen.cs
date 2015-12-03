@@ -68,7 +68,7 @@ public class AutoGen : MonoBehaviour {
 			for (int x = -1; x <= 1; x++) {
 				GameObject lane;
 				int rand = Random.Range (0, 200);
-				if(portalXLoc == x * 4) {
+				if(portalXLoc == worldXPos + x * 4) {
 					lane = (GameObject)Instantiate (tile,
 					                                new Vector3 (portalXLoc, worldYPos, zPosition), 
 					                                Quaternion.identity);
@@ -119,7 +119,6 @@ public class AutoGen : MonoBehaviour {
 
 			double remainder = distanceTraveled - (distanceTraveled/6)*5.5;
 			lastMarblePosition = marbleTransform.position.z - remainder;
-
 		}
 
 	}

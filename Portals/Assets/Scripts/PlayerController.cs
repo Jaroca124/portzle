@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	private static float MAX_VELOCITY = 20;
+	private static float MAX_VELOCITY = 17;
 	public float speed = 5; 
 	public float counter = -100;
 	public float popOutY = 200;
@@ -32,7 +32,9 @@ public class PlayerController : MonoBehaviour {
 	// Move the marble here
 	void FixedUpdate () 
 	{
-
+		if (this.gameObject.transform.position.y < -10) {
+			Application.LoadLevel("main_menu");
+		}
 		float moveHorizontal = 0;
 
 		#if UNITY_IOS
@@ -50,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 		float moveVertical = Input.GetAxis ("Vertical");
 		bool jump = Input.GetButton ("Jump");
 
-		Vector3 movementVertical = new Vector3 (0, 0, 3);
+		Vector3 movementVertical = new Vector3 (0, 0, 2);
 		Vector3 movementHorizontal = new Vector3 (moveHorizontal, 0, 0);
 		
 		if (rb.velocity.z < MAX_VELOCITY) {
@@ -95,17 +97,19 @@ public class PlayerController : MonoBehaviour {
 		*/
 	}
 
-	void OnCollisionEnter (Collision other) {
+	void OnCollisionEnter (Collision collision) {
 
-		if (other.contacts[0].normal.y > 0) {
+		if (collision.contacts[0].normal.y > 0) {
 			grounded = true;
 		}
 
-		if (other.gameObject.name == "Wedge") {
+		if (collision.collider.gameObject.name == "Wedge") {
 			rb.AddForce(new Vector3(0, 0, 100));
-		} else if (other.gameObject.name == "trampoline") {
+		} else if (collision.collider.gameObject.name == "trampoline") {
 			rb.AddForce(new Vector3(0, 100, 0));
-		}
+		} else if(collision.collider.gameObject.name == "Rock") {
+			Application.LoadLevel("main_menu");
+		}		
 	}
 
 	void OnCollisionExit (Collision other) {
@@ -129,10 +133,8 @@ public class PlayerController : MonoBehaviour {
 			GameObject portal = other.transform.parent.gameObject;
 			Warp (portal.GetComponent<Portal>().getToPortalCoords());
 		}
-
-
 	}
-
+	
 	private void flipCameras(GameObject topCamera, GameObject bottomCamera) {
 		topCamera.GetComponent<Camera>().rect = new Rect(0f, 0f, 1f, 0.5f);
 		bottomCamera.GetComponent<Camera>().rect = new Rect(0f, 0.5f, 1f, 0.5f);
@@ -150,8 +152,7 @@ public class PlayerController : MonoBehaviour {
 			if(!inPortalTransition) {
 				Collisions.IgnoreCollisionWithGroup (playerCollider, "Portals", false);
 			}
-		} 
-		 
+		}
 	}
 
 }

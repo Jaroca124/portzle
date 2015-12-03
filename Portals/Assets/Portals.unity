@@ -875,6 +875,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .166666672
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0f1e1518a80e562458930d8b2d0670d9, type: 2}
+      propertyPath: m_Name
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: 0f1e1518a80e562458930d8b2d0670d9, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f1e1518a80e562458930d8b2d0670d9, type: 2}
   m_IsPrefabParent: 0
