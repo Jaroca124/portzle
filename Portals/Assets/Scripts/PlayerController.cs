@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 	private bool inPortalTransition = false;
 
 	public GameObject darkCamera, lightCamera;
-
+	
 	public bool darkTop = true;
 	public bool grounded = false;
 
@@ -45,9 +45,10 @@ public class PlayerController : MonoBehaviour {
 
 		rb.AddForce (movementHorizontal * speed);
 
-		if (jump && rb.velocity.y <= 0) {
-			rb.AddForce(new Vector3(0, 100, 0));
+		if (jump && grounded) {
+			rb.AddForce(new Vector3(0, 200, 0));
 		}
+		
 	}
 
 	// On portal collision, warp the player from one portal to another
@@ -84,11 +85,20 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision other) {
+
+		if (other.contacts[0].normal.y > 0) {
+			grounded = true;
+		}
+
 		if (other.gameObject.name == "Wedge") {
 			rb.AddForce(new Vector3(0, 0, 100));
 		} else if (other.gameObject.name == "trampoline") {
-			rb.AddForce(new Vector3(0, 50, 0));
+			rb.AddForce(new Vector3(0, 100, 0));
 		}
+	}
+
+	void OnCollisionExit (Collision other) {
+		grounded = false;
 	}
 
 
