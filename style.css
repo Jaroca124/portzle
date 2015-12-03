@@ -57,7 +57,7 @@ section {
 	height: 100%;
 	width: 100%;
 	z-index: 1;
-	display: block;
+	display: none;
 }
 
 #banner_text {
@@ -68,7 +68,7 @@ section {
 	width: 100%;
 	z-index: 1;
 	position: relative;
-	display: block;
+	display: none;
 	font-size: 40px;
 }
 
@@ -156,4 +156,67 @@ section {
     vertical-align: middle;
     margin-top: 17px;
     margin-right: 5px;
+}
+#creators {
+    height: 100%;
+    width:  100%;
+    display: block;
+    margin-top: 0 auto;
+    position: relative;
+    background-color: red;
+    
+}
+
+#jake {
+    height: 50%;
+    width: 50%;
+    display: block;
+    position: relative;
+    background: green;
+    float: left;
+    margin: 0;
+}
+
+#thomas {
+    height: 50%;
+    width: 50%;
+    display: block;
+    position: relative;
+    background: yellow;
+    float: right;
+    margin: 0;
+}
+
+#mike {
+    height: 50%;
+    width: 50%;
+    display: block;
+    position: relative;
+    background: red;
+    float: right;
+    margin: 0;
+}
+
+#sam {
+    height: 50%;
+    width: 50%;
+    display: block;
+    position: relative;
+    background: cyan;
+    float: left;
+    margin: 0;
+}
+
+.profile_picture {
+    height: 90%;
+    width: 45%;
+    display: block;
+    float: left;
+    position: relative;
+    margin-top: 2%;
+}
+
+.picture_size {
+    height: 100%;
+    width: 100%;
 }
