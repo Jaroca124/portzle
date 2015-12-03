@@ -32,7 +32,21 @@ public class PlayerController : MonoBehaviour {
 	// Move the marble here
 	void FixedUpdate () 
 	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
+
+		float moveHorizontal = 0;
+
+		#if UNITY_IOS
+		if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Moved)) {
+			Vector2 touchPosDelta = Input.GetTouch(0).deltaPosition;
+			moveHorizontal = touchPosDelta.x/10;
+
+		}
+		#endif
+
+		#if UNITY_EDITOR
+		moveHorizontal = Input.GetAxis("Horizontal");
+		#endif
+
 		float moveVertical = Input.GetAxis ("Vertical");
 		bool jump = Input.GetButton ("Jump");
 
@@ -52,15 +66,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	// On portal collision, warp the player from one portal to another
-	void Warp() {
+	void Warp(Vector3 warpLocation) {
 		inPortalTransition = true; 
 		GameObject dummy = GameObject.Find ("Dummy"); 
 		cloneMarble = (GameObject)Instantiate (dummy, transform.position, Quaternion.identity);
 	   	SphereCollider cloneCollider = cloneMarble.GetComponent<SphereCollider> (); 
-		Vector3 newPosition = new Vector3 (transform.position.x, transform.position.y * -1 + 1,
-		                              transform.position.z);
-
-		transform.position = newPosition;
+		transform.position = warpLocation;
 		Vector3 popOut = new Vector3 (0, popOutY, 0);
 		rb.AddForce(popOut);
 		Collisions.IgnoreCollisionWithGroup (playerCollider, "Surfaces", true);
@@ -115,7 +126,8 @@ public class PlayerController : MonoBehaviour {
 		} 
 
 		if (other.gameObject.name == "EntranceWindow") {
-			Warp ();
+			GameObject portal = other.transform.parent.gameObject;
+			Warp (portal.GetComponent<Portal>().getToPortalCoords());
 		}
 
 

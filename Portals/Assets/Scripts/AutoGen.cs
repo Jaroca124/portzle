@@ -56,6 +56,8 @@ public class AutoGen : MonoBehaviour {
 			GameObject portal2 = (GameObject)Instantiate (portal, 
 			                                              new Vector3 (-portalXLoc, worldYPos + .5f, zPosition), 
 			                                              Quaternion.identity);
+			portal1.GetComponent<Portal>().toPortalId = 1;
+			portal2.GetComponent<Portal>().toPortalId = 0;
 			GameObject portalPair = new GameObject();
 			portal1.transform.SetParent (portalPair.transform);
 			portal2.transform.SetParent (portalPair.transform);
@@ -100,6 +102,7 @@ public class AutoGen : MonoBehaviour {
 		}
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
 
