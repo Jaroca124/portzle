@@ -67,13 +67,15 @@ public class AutoGen : MonoBehaviour {
 		for (int w = -1; w <= 1; w += 2) {
 			for (int x = -1; x <= 1; x++) {
 				GameObject lane;
+				GameObject newTile = (w == -1) ? darkTile : tile;
 				int rand = Random.Range (0, 200);
+				float tileXPos = (worldXPos * w) + (x * tileWidth);
+
 				if(portalXLoc == worldXPos + x * 4) {
-					lane = (GameObject)Instantiate (tile,
-					                                new Vector3 (portalXLoc, worldYPos, zPosition), 
+					lane = (GameObject)Instantiate (newTile,
+					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				}
-				float tileXPos = (worldXPos * w) + (x * tileWidth);
 				if (rand % 15 == 0) {
 					lane = (GameObject)Instantiate (holeTile, 
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
@@ -93,7 +95,7 @@ public class AutoGen : MonoBehaviour {
 					                                Quaternion.identity);
 				
 				} else {
-					lane = (GameObject)Instantiate (tile,
+					lane = (GameObject)Instantiate (newTile,
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				}

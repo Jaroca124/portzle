@@ -274,6 +274,10 @@ Prefab:
       propertyPath: m_Name
       value: TrampolineTile
       objectReference: {fileID: 0}
+    - target: {fileID: 6439830, guid: e58f997bc28004ff883afba5aa6a6f27, type: 2}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e58f997bc28004ff883afba5aa6a6f27, type: 2}
   m_IsPrefabParent: 0
@@ -587,7 +591,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 588251519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 0, z: 0}
+  m_LocalPosition: {x: 50, y: 0, z: 6}
   m_LocalScale: {x: 12, y: 1, z: 54}
   m_Children: []
   m_Father: {fileID: 1384573134}
@@ -1039,6 +1043,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 412112, guid: ba8b180a8e31044aa96f5caa5cb121f0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba8b180a8e31044aa96f5caa5cb121f0, type: 2}
   m_IsPrefabParent: 0
@@ -1081,7 +1089,7 @@ Transform:
   m_GameObject: {fileID: 1036403427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -50, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: .5, z: 66}
+  m_LocalScale: {x: 12, y: 1, z: 66}
   m_Children: []
   m_Father: {fileID: 1384573134}
   m_RootOrder: 3
