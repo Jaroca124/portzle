@@ -49,12 +49,12 @@ public class AutoGen : MonoBehaviour {
 	void CreateTileRow(float zPosition) {
 		float portalXLoc = 2;
 		if(Random.Range (0,200) % 10 == 0) {
-			portalXLoc = random.Next(-1, 1) * tileWidth + worldXPos;
+			portalXLoc = random.Next(-1, 1) * tileWidth;
 			GameObject portal1 = (GameObject)Instantiate (portal, 
-			                                              new Vector3 (portalXLoc, worldYPos + .5f, zPosition), 
+			                                              new Vector3 (worldXPos + portalXLoc, worldYPos + .5f, zPosition), 
 			                                              Quaternion.identity);
 			GameObject portal2 = (GameObject)Instantiate (portal, 
-			                                              new Vector3 (-portalXLoc, worldYPos + .5f, zPosition), 
+			                                              new Vector3 (-worldXPos + portalXLoc, worldYPos + .5f, zPosition), 
 			                                              Quaternion.identity);
 			portal1.GetComponent<Portal>().toPortalId = 1;
 			portal2.GetComponent<Portal>().toPortalId = 0;
@@ -71,7 +71,7 @@ public class AutoGen : MonoBehaviour {
 				int rand = Random.Range (0, 200);
 				float tileXPos = (worldXPos * w) + (x * tileWidth);
 
-				if(portalXLoc == worldXPos + x * 4) {
+				if(portalXLoc == tileWidth * x + x) {
 					lane = (GameObject)Instantiate (newTile,
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
