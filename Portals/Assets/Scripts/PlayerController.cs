@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () 
 	{
 		if (this.gameObject.transform.position.y < -10) {
-			Application.LoadLevel("main_menu");
+			Application.LoadLevel("scoreboard");
 		}
 		float moveHorizontal = 0;
 
