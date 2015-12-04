@@ -5,7 +5,7 @@ using System.Collections;
 public class UpdateScore : MonoBehaviour {
 
 	Text text;
-	public int score;
+	public int GAME_score;
 	// Use this for initialization
 	void Start () {
 		text = GetComponent <Text> ();
@@ -13,7 +13,7 @@ public class UpdateScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		score++;
-		text.text = "Score: " + score;
+		GAME_score++;
+		text.text = "Score: " + GAME_score;
 	}
 }
