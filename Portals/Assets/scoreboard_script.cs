@@ -14,8 +14,8 @@ public class scoreboard_script : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        UpdateScore score_script = GetComponent<UpdateScore>();
-        Debug.Log("Yo " + score_script.GAME_score);
+        //UpdateScore score_script = GetComponent<UpdateScore>();
+        //Debug.Log("Yo " + score_script.GAME_score);
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class scoreboard_script : MonoBehaviour {
         float buttonWidth = Screen.width / 4;
         float buttonHeight = buttonWidth;
         
-        //score_text.text = UpdateScore.GAME_score.ToString();
+        score_text.text = UpdateScore.GAME_score.ToString();
 
         //GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), bgTexture);
         if (GUI.Button(new Rect(Screen.width / 2 + buttonWidth / 2, Screen.height * .8f, buttonWidth, buttonHeight), play_again_button))
