@@ -25,31 +25,29 @@ Loading C:\Users\Jake\Documents\GitHub\portzle\Portals\Play_Game_Data\Managed\Un
 Platform assembly: C:\Users\Jake\Documents\GitHub\portzle\Portals\Play_Game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Jake\Documents\GitHub\portzle\Portals\Play_Game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Jake\Documents\GitHub\portzle\Portals\Play_Game_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.120 seconds
+- Completed reload, in  0.126 seconds
 desktop: 3200x1800 60Hz; virtual: 3200x1800 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Jake\Documents\GitHub\portzle\Portals\Play_Game_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2d70 -> priority: 1 
-Scene 'add_name' (-1) couldn't be loaded because it has not been added to the build settings or the asset bundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 385)
+  Thread -> id: b84 -> priority: 1 
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.367278 ms
 
-Scene 'add_name' (-1) couldn't be loaded because it has not been added to the build settings or the asset bundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 385)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 285.
+Total: 0.300015 ms (FindLiveObjects: 0.018158 ms CreateObjectMapping: 0.013421 ms MarkObjects: 0.237643 ms  DeleteObjects: 0.030001 ms)
 
-Scene 'add_name' (-1) couldn't be loaded because it has not been added to the build settings or the asset bundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 385)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+WARNING: Shader Unsupported: 'Enviro/BumpedDiffuseOverlaySM2' - Pass 'FORWARD' has no vertex shader
+WARNING: Shader Unsupported: 'Enviro/BumpedDiffuseOverlaySM2' - Pass 'FORWARD' has no vertex shader
+WARNING: Shader Unsupported: 'Enviro/BumpedDiffuseOverlaySM2' - Pass 'PREPASS' has no vertex shader
+WARNING: Shader Unsupported: 'Enviro/BumpedDiffuseOverlaySM2' - Pass 'PREPASS' has no vertex shader
+WARNING: Shader Unsupported: 'Enviro/BumpedDiffuseOverlaySM2' - Pass 'DEFERRED' has no vertex shader
+WARNING: Shader Unsupported: 'Enviro/BumpedDiffuseOverlaySM2' - All passes removed
+UnloadTime: 3.517286 ms
 
-Scene 'add_name' (-1) couldn't be loaded because it has not been added to the build settings or the asset bundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 385)
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 433.
+Total: 0.421600 ms (FindLiveObjects: 0.026843 ms CreateObjectMapping: 0.024869 ms MarkObjects: 0.328832 ms  DeleteObjects: 0.040659 ms)
 

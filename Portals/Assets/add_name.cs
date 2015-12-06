@@ -5,9 +5,8 @@ using UnityEngine.UI;
 public class add_name : MonoBehaviour {
 
     public Texture start;
-    public string username;
+    public static string username;
     public UnityEngine.UI.InputField input;
-    public UnityEngine.UI.Text nameDisplay;
 
     // Use this for initialization
     void Start () {
@@ -17,10 +16,11 @@ public class add_name : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         username = input.text;
+        Debug.Log(username.ToString());
 	}
 
     void OnGUI()
-    {
+    {   
         if (GUI.Button(new Rect(Screen.width * .4f, Screen.height * .8f, 70, 70), start))
         {
             change_level("Portals");
