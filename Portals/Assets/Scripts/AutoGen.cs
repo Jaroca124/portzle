@@ -14,6 +14,7 @@ public class AutoGen : MonoBehaviour {
 	public GameObject trampolineTile;
 	public GameObject rockTile;
 
+	private int drawDistance = 36;
 	public BoxCollider[] laneColliders;
 
 	public GameObject portals;
@@ -128,23 +129,11 @@ public class AutoGen : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		double distanceTraveled = (int)(marbleTransform.position.z) - lastMarblePosition;
-
-		int numTilesToGenerate = (int)(distanceTraveled / 6);
-
-		if(numTilesToGenerate > 0) {
-			for(int i = 0; i < numTilesToGenerate; i++) {
-				spawnLocation += 6;
-				CreateTileRow((int) spawnLocation);
-				lastSpawned = (int) marbleTransform.position.z;
-			}
-
-			double remainder = distanceTraveled - (distanceTraveled/6)*5.5;
-			lastMarblePosition = marbleTransform.position.z - remainder;
+		if (marbleTransform.position.z >= spawnLocation - drawDistance) {
+			spawnLocation += 6;
+			CreateTileRow((int) spawnLocation);
 		}
-
-	}
-
+	
 		/* TODO: fix this
 		if (marble.position.z > 18F && !spawned) {
 			Transform groundSegment = (Transform) Instantiate(ground, new Vector3(0, 49.3F, 43.6F), Quaternion.identity);
