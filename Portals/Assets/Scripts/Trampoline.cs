@@ -13,12 +13,12 @@ public class Trampoline : MonoBehaviour {
 	
 	}
 
-	void onCollisonEnter(Collision collision) {
+	void OnCollisonEnter(Collision collision) {
 		Rigidbody rb = collision.collider.gameObject.GetComponent<Rigidbody> ();
 		float yVelocity = rb.velocity.y;
 		Debug.Log ("WOOH", this);
 		if (yVelocity < 0) {
-			rb.AddForce (new Vector3(0, -4*yVelocity, 0));
+			rb.AddForce (new Vector3(0, -400*yVelocity, 0));
 		}
 	}
 }
