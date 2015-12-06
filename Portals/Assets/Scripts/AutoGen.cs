@@ -10,26 +10,27 @@ public class AutoGen : MonoBehaviour {
 	public GameObject wedgeTile;
 	public GameObject holeTile;
 	public GameObject darkTile;
-	private GameObject wallTile;
-	private GameObject trampolineTile;
-	private GameObject rockTile;
+	public GameObject wallTile;
+	public GameObject trampolineTile;
+	public GameObject rockTile;
+
+	public BoxCollider[] laneColliders;
 
 	public GameObject portals;
 	public GameObject surfaces;
 
-
 	public GameObject[] tileTypes;
 	public System.Random random = new System.Random();
-
-
+	
 	private double lastMarblePosition = -8;
 	private int spawnLocation = 30;
 	private int lastSpawned = -100;
 
 	private static float tileWidth = 4f;
+	private static float tileLength = 6f;
 	private static float worldXPos = 50f;
 	private static float worldYPos = 0f;
-	private static float worldHeight = 1f;
+	private static float worldHeight = 2f;
 
 	// Use this for initialization
 	void Start () {
@@ -47,7 +48,7 @@ public class AutoGen : MonoBehaviour {
 	}
 
 	void CreateTileRow(float zPosition) {
-		float portalXLoc = 2;
+		float portalXLoc = -500;
 		if(Random.Range (0,200) % 10 == 0) {
 			portalXLoc = random.Next(-1, 1) * tileWidth;
 			GameObject portal1 = (GameObject)Instantiate (portal, 
@@ -62,21 +63,40 @@ public class AutoGen : MonoBehaviour {
 			portal1.transform.SetParent (portalPair.transform);
 			portal2.transform.SetParent (portalPair.transform);
 			portalPair.transform.SetParent(portals.transform);
-				
 		}
-		for (int w = -1; w <= 1; w += 2) {
-			for (int x = -1; x <= 1; x++) {
+		for (int world = 0; world < 2; world++) {
+			for (int col = 0; col < 3; col++) {
+				int x = col - 1; 
+		
 				GameObject lane;
-				GameObject newTile = (w == -1) ? darkTile : tile;
+				GameObject newTile = (world == 0) ? darkTile : tile;
 				int rand = Random.Range (0, 200);
-				float tileXPos = (worldXPos * w) + (x * tileWidth);
+				float tileXPos = (worldXPos * (-1 + world*2)) + (x * tileWidth);
 
-				if(portalXLoc == tileWidth * x + x) {
+				int colliderIndex = world * 3  + col;
+
+				if(rand % 15 == 0) {
+					laneColliders[colliderIndex] = null;
+				} else {
+					if(laneColliders[colliderIndex] == null) {
+						GameObject newCollider = (GameObject) GameObject.Instantiate(GameObject.Find("LaneCollider"), 
+						                        new Vector3 (tileXPos, worldYPos, zPosition),
+						                        Quaternion.identity);
+						laneColliders[colliderIndex] = newCollider.GetComponent<BoxCollider>();
+					} else {
+						BoxCollider laneCollider = laneColliders[colliderIndex];
+						laneCollider.center = laneCollider.center + new Vector3(0, 0, .5f);
+						laneCollider.extents = laneCollider.extents + new Vector3(0, 0, .5f);
+						print ("lane :" + col +  " extents: " + laneCollider.extents);
+					}
+
+				}
+
+				if(portalXLoc == tileWidth * x) {
 					lane = (GameObject)Instantiate (newTile,
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
-				}
-				if (rand % 15 == 0) {
+				} else if (rand % 15 == 0) {
 					lane = (GameObject)Instantiate (holeTile, 
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
