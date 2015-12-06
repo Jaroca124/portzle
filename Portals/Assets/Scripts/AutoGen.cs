@@ -5,22 +5,35 @@ public class AutoGen : MonoBehaviour {
 
 	public Transform marbleTransform;
 	// public GameObject tileWithPortal;
-	public GameObject tile;
-	public GameObject portal;
-	public GameObject wedgeTile;
-	public GameObject holeTile;
+	//public GameObject tile;
+	//public GameObject portal;
+	//public GameObject wedgeTile;
+	/*public GameObject holeTile;
 	public GameObject darkTile;
 	public GameObject wallTile;
 	public GameObject trampolineTile;
 	public GameObject rockTile;
+	*/
+
+	public Transform tile;
+	public Transform portal;
+	public Transform wedgeTile;
+	public Transform holeTile;
+	public Transform darkTile;
+	public Transform wallTile;
+	public Transform trampolineTile;
+	public Transform rockTile;
+
+	public Transform Star1;
 
 	public BoxCollider[] laneColliders;
 
-	public GameObject portals;
-	public GameObject surfaces;
+	public Transform portals;
+	public Transform surfaces;
 
-	public GameObject[] tileTypes;
+	public Transform[] tileTypes;
 	public System.Random random = new System.Random();
+
 	
 	private double lastMarblePosition = -8;
 	private int spawnLocation = 30;
@@ -35,6 +48,7 @@ public class AutoGen : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		marbleTransform = GameObject.Find("Marble").transform;
+		/*
 		tile = GameObject.Find("Tile");
 		darkTile = GameObject.Find("DarkTile");
 		portal = GameObject.Find("Portal");
@@ -45,31 +59,32 @@ public class AutoGen : MonoBehaviour {
 		wallTile = GameObject.Find ("WallTile");
 		trampolineTile = GameObject.Find ("TrampolineTile");
 		rockTile = GameObject.Find ("RockTile");
+		*/
 	}
 
 	void CreateTileRow(float zPosition) {
 		float portalXLoc = -500;
 		if(Random.Range (0,200) % 10 == 0) {
 			portalXLoc = random.Next(-1, 1) * tileWidth;
-			GameObject portal1 = (GameObject)Instantiate (portal, 
+			Transform portal1 = (Transform)Instantiate (portal, 
 			                                              new Vector3 (worldXPos + portalXLoc, worldYPos + .5f, zPosition), 
 			                                              Quaternion.identity);
-			GameObject portal2 = (GameObject)Instantiate (portal, 
+			Transform portal2 = (Transform)Instantiate (portal, 
 			                                              new Vector3 (-worldXPos + portalXLoc, worldYPos + .5f, zPosition), 
 			                                              Quaternion.identity);
 			portal1.GetComponent<Portal>().toPortalId = 1;
 			portal2.GetComponent<Portal>().toPortalId = 0;
 			GameObject portalPair = new GameObject();
-			portal1.transform.SetParent (portalPair.transform);
-			portal2.transform.SetParent (portalPair.transform);
-			portalPair.transform.SetParent(portals.transform);
+			portal1.SetParent (portalPair.transform);
+			portal2.SetParent (portalPair.transform);
+			portalPair.transform.SetParent(portals);
 		}
 		for (int world = 0; world < 2; world++) {
 			for (int col = 0; col < 3; col++) {
 				int x = col - 1; 
 		
-				GameObject lane;
-				GameObject newTile = (world == 0) ? darkTile : tile;
+				//Transform lane;
+				Transform newTile = (world == 0) ? darkTile : tile;
 				int rand = Random.Range (0, 200);
 				float tileXPos = (worldXPos * (-1 + world*2)) + (x * tileWidth);
 
@@ -92,34 +107,46 @@ public class AutoGen : MonoBehaviour {
 
 				}
 
-				if(portalXLoc == tileWidth * x) {
-					lane = (GameObject)Instantiate (newTile,
+			/*	if(portalXLoc == tileWidth * x) {
+					Instantiate (newTile,
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
-					                                Quaternion.identity);
-				} else if (rand % 15 == 0) {
-					lane = (GameObject)Instantiate (holeTile, 
+					                                Quaternion.identity); */
+				if (rand % 15 == 0) {
+					Instantiate (holeTile, 
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				}
 				else if (rand % 37 == 0) {
-					lane = (GameObject)Instantiate (wedgeTile, 
+					Instantiate (wedgeTile, 
 					                                new Vector3 (tileXPos, worldYPos, zPosition),
 					                                Quaternion.identity);
+					Instantiate (Star1, new Vector3 (tileXPos, worldYPos + 2, zPosition + 1), 
+					             transform.rotation);
+					Instantiate (Star1, new Vector3 (tileXPos, worldYPos + 5, zPosition + 3), 
+					             transform.rotation);
+					Instantiate (Star1, new Vector3 (tileXPos, worldYPos + 6, zPosition + 5), 
+					             transform.rotation);
+					Instantiate (Star1, new Vector3 (tileXPos, worldYPos + 5, zPosition + 7), 
+					             transform.rotation);
+					Instantiate (Star1, new Vector3 (tileXPos, worldYPos + 4, zPosition + 9), 
+					             transform.rotation);
+
 				} else if (rand % 23 == 0) {
-					lane = (GameObject)Instantiate (trampolineTile, 
+					Debug.Log("teddy bear", this);
+					Instantiate (trampolineTile, 
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				} else if(rand % 29 == 0) {
-					lane = (GameObject)Instantiate (rockTile, 
+					Instantiate (rockTile, 
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				
 				} else {
-					lane = (GameObject)Instantiate (newTile,
+					Instantiate (newTile,
 					                                new Vector3 (tileXPos, worldYPos, zPosition), 
 					                                Quaternion.identity);
 				}
-				lane.transform.SetParent (surfaces.transform);
+				//lane.transform.SetParent (surfaces.transform);
 			}
 		}
 	}
@@ -144,6 +171,7 @@ public class AutoGen : MonoBehaviour {
 		}
 
 	}
+
 
 		/* TODO: fix this
 		if (marble.position.z > 18F && !spawned) {
