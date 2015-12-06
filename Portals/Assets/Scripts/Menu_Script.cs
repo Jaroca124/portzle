@@ -29,7 +29,7 @@ public class Menu_Script : MonoBehaviour {
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), bgTexture);
 		if (GUI.Button(new Rect(Screen.width/2 - buttonWidth/2, Screen.height * .3f, buttonWidth, buttonHeight), start_texture))
         {
-            change_level("Portals");
+            change_level("name_screen");
         }
 		if (GUI.Button(new Rect(Screen.width/2 - buttonWidth/2, Screen.height * .6f, buttonWidth, buttonHeight), instruction_texture))
         {
