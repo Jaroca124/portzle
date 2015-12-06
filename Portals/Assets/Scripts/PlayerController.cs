@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public float popOutY = 200;
 	public Rigidbody rb;
 
+	public AudioClip rollSound;
+	public AudioSource roll;
 
 	private SphereCollider playerCollider;
 	private GameObject cloneMarble;
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour {
 	// Move the marble here
 	void FixedUpdate () 
 	{
+
 		if (this.gameObject.transform.position.y < -10) {
 			Application.LoadLevel("main_menu");
 		}
@@ -61,6 +64,13 @@ public class PlayerController : MonoBehaviour {
 
 		rb.AddForce (movementHorizontal * speed);
 
+		if (grounded) {
+			if(!roll.isPlaying) {
+				roll.Play ();
+			}
+		} else {
+			roll.Stop ();
+		}
 		if (jump && grounded) {
 			rb.AddForce(new Vector3(0, 200, 0));
 		}
@@ -98,11 +108,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision collision) {
-
-		if (collision.contacts[0].normal.y > 0) {
-			grounded = true;
-		}
-
+	
 		if (collision.collider.gameObject.name == "Wedge") {
 			rb.AddForce(new Vector3(0, 0, 100));
 		} else if (collision.collider.gameObject.name == "trampoline") {
@@ -112,6 +118,11 @@ public class PlayerController : MonoBehaviour {
 		}		
 	}
 
+	void OnCollisionStay (Collision collision) {
+		if (collision.contacts[0].normal.y > 0) {
+			grounded = true;
+		} 
+	}
 	void OnCollisionExit (Collision other) {
 		grounded = false;
 	}
