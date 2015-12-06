@@ -10,7 +10,7 @@
         <!--<link rel="icon" type="image/png" sizes="96x96" href="Assets/favicon-96x96.png">-->
         <script type="text/javascript" src="script.js"></script>
     </head>
-    <body>
+    <body onload='load()'>
         <!--Header-->
         <div id='header'><img src="Website_Assets/header_text.png" id='logo_text'><a id='apple_badge' href=''><img src='Website_Assets/Download_on_the_App_Store_Badge_US-UK_135x40.svg'></a></div>
         
@@ -21,19 +21,58 @@
                     <h1 style="font-size: 130px">Portzle</h1>
                     <h6>Navigate and warp your way to success,<br>coming to the App Store - Winter 2015</h6>
                 </div>
-                <div class="goto-next" id='section_one'></div>
             </div>
+            <div class="goto-next" id='section_one'></div>
         </section>
-        <section id='section_one'>
-            <div id='creators'>
-                <div id='jake'>
-                    <div class='profile_picture'>
-                        <img class='picture_size' src="Website_Assets/Jacob_Caccamo.png" alt='Jacob Caccamo'>
+        <section id='one'>
+           <div id='wrapper'>
+               <div id='instructions_text'>
+                   <h1 style='font-size: 60px; margin: 0px'>Instructions</h1>
+                   <p style='font-size: 25px;'>Goal: Navigate the marble to survive as long as possible.<br><br>Avoid rocks, walls, and ledges and utilize portals to switch between worlds.<br><br>Control the marble by tiliting your device or by swiping your finger along the bottom of the screen.<br><br>Good Luck...</p>
+               </div>
+           </div>
+            <div class="goto-next-black" id='section_two'></div>
+        </section>
+        <section id='two'>
+            <div id='overlay2'>
+                <div id='creators'>
+                    <div id='jake'>
+                        <div class='profile_picture'>
+                            <img class='picture_size' src="Website_Assets/Jacob_Caccamo.png" alt='Jacob Caccamo'>
+                        </div>
+                        <div class='name_bio'>
+                            <h1>Jacob Caccamo</h1>
+                            <p>Jake is a junior pursuing a degree in Engineering Psychology with a minor in Computer Science at Tufts University.</p>
+                        </div>
+                    </div>
+                    <div id='thomas'>
+                        <div class='profile_picture'>
+                            <img class='picture_size' src="Website_Assets/Thomas_Colgrove.png" alt='Thomas Colgrove'>
+                        </div>
+                        <div class='name_bio'>
+                            <h1>Thomas Colgrove</h1>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id='sam'>
+                        <div class='profile_picture'>
+                            <img class='picture_size' src="Website_Assets/Samantha_Welch.png" alt='Samantha Welch'>
+                        </div>
+                        <div class='name_bio'>
+                            <h1>Samantha Welch</h1>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id='mike'>
+                        <div class='profile_picture'>
+                            <img class='picture_size' src="Website_Assets/Mike_Yeung.png" alt='Mike Yeung'>
+                        </div>
+                        <div class='name_bio'>
+                            <h1>Mike Yeung</h1>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
-                <div id='thomas'></div>
-                <div id='sam'></div>
-                <div id='mike'></div>
             </div>
         </section>
 

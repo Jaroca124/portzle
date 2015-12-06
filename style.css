@@ -127,7 +127,7 @@ section {
 }
 
 .goto-next-black {
-	background-image: url("images/arrow_black.png");
+	background-image: url("Website_Assets/arrow_black.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -158,13 +158,12 @@ section {
     margin-right: 5px;
 }
 #creators {
-    height: 100%;
+    top: 10vh;
+    height: 90vh;
     width:  100%;
     display: block;
     margin-top: 0 auto;
     position: relative;
-    background-color: red;
-    
 }
 
 #jake {
@@ -172,7 +171,6 @@ section {
     width: 50%;
     display: block;
     position: relative;
-    background: green;
     float: left;
     margin: 0;
 }
@@ -182,7 +180,6 @@ section {
     width: 50%;
     display: block;
     position: relative;
-    background: yellow;
     float: right;
     margin: 0;
 }
@@ -192,7 +189,6 @@ section {
     width: 50%;
     display: block;
     position: relative;
-    background: red;
     float: right;
     margin: 0;
 }
@@ -202,14 +198,13 @@ section {
     width: 50%;
     display: block;
     position: relative;
-    background: cyan;
     float: left;
     margin: 0;
 }
 
 .profile_picture {
     height: 90%;
-    width: 45%;
+    width: 40%;
     display: block;
     float: left;
     position: relative;
@@ -219,4 +214,62 @@ section {
 .picture_size {
     height: 100%;
     width: 100%;
+}
+
+.name_bio {
+    height: 90%;
+    width: 45%;
+    display: block;
+    float: right;
+    position: relative;
+    margin-top: 2%;
+    right: 5%;
+    color: white;
+}
+
+#two {
+    background-image: url(Website_Assets/bio_background_compressed.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#overlay2 {
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	display: block;
+}
+
+#one {
+    background-image: url(Website_Assets/instructions_background.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+#wrapper {
+    margin-top: 0px;
+    top: 15%;
+    height: 70%;
+    width: 50%;
+    background-color: rgba(0,0,0, .8);
+    border-radius: 10%;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    
+}
+
+#instructions_text {
+    color: white;
+    margin: 0;
+    padding: 10px;
 }
