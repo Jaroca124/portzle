@@ -256,14 +256,9 @@ section {
 }
 
 #wrapper {
-    margin-top: 0px;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0, .8);
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    
+    background-color: rgba(0,0,0, .6);
 }
 
 #instructions_text {
@@ -271,7 +266,9 @@ section {
     margin: 0;
     display: inline-block;
     padding: 10px;
+    position: relative;
     float: right;
+    width: 45%;
 }
 
 #three {
@@ -303,9 +300,11 @@ section {
 }
 
 #overview {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    display: inline-block;
     color: white;
+    margin: 0;
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    float: left;
+    width: 45%;
 }
