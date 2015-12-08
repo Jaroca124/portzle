@@ -12,8 +12,11 @@ public class Menu_Script : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
-	}
+        if (!PlayerPrefs.HasKey("High_Score"))
+        {
+            PlayerPrefs.SetInt("High_Score", 0);
+        }
+    }
 
     // Update is called once per frame
     void Update()

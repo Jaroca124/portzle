@@ -758,7 +758,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -148, y: -183}
+  m_AnchoredPosition: {x: -150.710007, y: -183}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &630533312
@@ -810,7 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6652fcbb9eee14808a27c1e19c4029db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GAME_score: 0
 --- !u!4 &641937159 stripped
 Transform:
   m_PrefabParentObject: {fileID: 428806, guid: c8b148211059c42fe895848cae025bfa, type: 2}
