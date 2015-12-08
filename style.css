@@ -257,11 +257,9 @@ section {
 
 #wrapper {
     margin-top: 0px;
-    top: 15%;
-    height: 70%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
     background-color: rgba(0,0,0, .8);
-    border-radius: 10%;
     display: block;
     position: relative;
     margin: 0 auto;
@@ -271,7 +269,9 @@ section {
 #instructions_text {
     color: white;
     margin: 0;
+    display: inline-block;
     padding: 10px;
+    float: right;
 }
 
 #three {
@@ -289,5 +289,23 @@ section {
     margin: 0 auto;
     display: block;
     position: relative;
+    color: white;
+}
+
+#references_list {
+    height: 100%;
+    width: 100%;
+    float: left;
+    display: block;
+    position: relative;
+    margin: 5px;
+    text-align: left;
+}
+
+#overview {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    display: inline-block;
     color: white;
 }
