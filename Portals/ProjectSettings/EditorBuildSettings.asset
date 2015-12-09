@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/scoreboard.unity
   - enabled: 1
     path: Assets/name_screen.unity
+  - enabled: 1
+    path: Assets/level_select.unity
