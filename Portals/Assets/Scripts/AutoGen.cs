@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class AutoGen : MonoBehaviour {
 
@@ -14,12 +16,13 @@ public class AutoGen : MonoBehaviour {
 	public GameObject trampolineTile;
 	public GameObject rockTile;
 
-	private int drawDistance = 120;
+	private static int MAX_ROWS = 20;
+	private int drawDistance = 60;
 	public BoxCollider[] laneColliders;
-
 
 	public GameObject portals;
 	public GameObject surfaces;
+	public GameObject colliders;
 
 	public GameObject[] tileTypes;
 	public System.Random random = new System.Random();
@@ -27,6 +30,11 @@ public class AutoGen : MonoBehaviour {
 	private double lastMarblePosition = -8;
 	private int spawnLocation = 30;
 	private int lastSpawned = -100;
+
+	private int rowsSpawnedSinceCleanup = 0;
+
+	private Queue<GameObject> garbageTiles = new Queue<GameObject>();
+	private Queue<GameObject> garbageColliders = new Queue<GameObject>(); 
 
 	private static float tileWidth = 4f;
 	private static float tileLength = 6f;
@@ -44,6 +52,7 @@ public class AutoGen : MonoBehaviour {
 		holeTile = GameObject.Find ("HoleTile");
 		portals = GameObject.Find ("Portals");
 		surfaces = GameObject.Find ("Surfaces");
+		colliders = GameObject.Find ("Colliders");
 		wallTile = GameObject.Find ("WallTile");
 		trampolineTile = GameObject.Find ("TrampolineTile");
 		rockTile = GameObject.Find ("RockTile");
@@ -61,6 +70,8 @@ public class AutoGen : MonoBehaviour {
 			                                              Quaternion.identity);
 			portal1.GetComponent<Portal>().toPortalId = 1;
 			portal2.GetComponent<Portal>().toPortalId = 0;
+			garbageTiles.Enqueue(portal1);
+			garbageTiles.Enqueue(portal2);
 			GameObject portalPair = new GameObject();
 			portal1.transform.SetParent (portalPair.transform);
 			portal2.transform.SetParent (portalPair.transform);
@@ -77,7 +88,8 @@ public class AutoGen : MonoBehaviour {
 
 				int colliderIndex = world * 3  + col;
 
-				if(rand % 15 == 0) {
+				if(rand % 15 == 0 && laneColliders[colliderIndex] != null) {
+					garbageColliders.Enqueue(laneColliders[colliderIndex].gameObject);				
 					laneColliders[colliderIndex] = null;
 				} else {
 					if(laneColliders[colliderIndex] == null) {
@@ -89,9 +101,8 @@ public class AutoGen : MonoBehaviour {
 						BoxCollider laneCollider = laneColliders[colliderIndex];
 						laneCollider.center = laneCollider.center + new Vector3(0, 0, .5f);
 						laneCollider.extents = laneCollider.extents + new Vector3(0, 0, .5f);
-						print ("lane :" + col +  " extents: " + laneCollider.extents);
+						laneCollider.gameObject.transform.SetParent (colliders.transform);
 					}
-
 				}
 
 				if(portalXLoc == tileWidth * x) {
@@ -122,13 +133,45 @@ public class AutoGen : MonoBehaviour {
 					                                Quaternion.identity);
 				}
 				lane.transform.SetParent (surfaces.transform);
+				garbageTiles.Enqueue(lane);
 			}
 		}
+
+		rowsSpawnedSinceCleanup++;
 	}
-	
+
+	void Cleanup() {
+		print ("taking out the trash....");
+
+		BoxCollider bc = garbageColliders.Peek ().GetComponent<BoxCollider>();
+		while((bc.bounds.center.z + (bc.bounds.extents.z/2)) < marbleTransform.position.z - 1) {
+			print ("DESTROYING COLLIDER");
+			Destroy (garbageColliders.Dequeue());
+			if(garbageColliders.Count == 0) {
+				break;
+			}
+			bc = garbageColliders.Peek ().GetComponent<BoxCollider>();
+		}
+
+		while (garbageTiles.Peek ().transform.position.z <= marbleTransform.position.z - 6) {
+			Destroy(garbageTiles.Dequeue());
+			if(garbageColliders.Count == 0) {
+				break;
+			}
+		}
+
+		GameObject everything = GameObject.Find("Everything");
+		//everything.transform.Translate (new Vector3(0, 0, -rowsSpawnedSinceCleanup*tileLength));
+		//spawnLocation -= (int)(rowsSpawnedSinceCleanup * tileLength);
+		rowsSpawnedSinceCleanup = 0;
+	}
 
 	// Update is called once per frame
 	void Update () {
+		if (garbageTiles.Count > 0 && garbageColliders.Count > 0) {
+			//Cleanup();
+		}
+
 		if (marbleTransform.position.z >= spawnLocation - drawDistance) {
 			spawnLocation += 6;
 			CreateTileRow ((int)spawnLocation);
