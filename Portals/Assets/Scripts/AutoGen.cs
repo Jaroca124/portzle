@@ -141,11 +141,11 @@ public class AutoGen : MonoBehaviour {
 	}
 
 	void Cleanup() {
-		print ("taking out the trash....");
+		//print ("taking out the trash....");
 
 		BoxCollider bc = garbageColliders.Peek ().GetComponent<BoxCollider>();
 		while((bc.bounds.center.z + (bc.bounds.extents.z)) < marbleTransform.position.z - 1) {
-			print ("DESTROYING COLLIDER");
+			//print ("DESTROYING COLLIDER");
 			Destroy (garbageColliders.Dequeue());
 			if(garbageColliders.Count == 0) {
 				break;
@@ -160,16 +160,20 @@ public class AutoGen : MonoBehaviour {
 			}
 		}
 
-		GameObject everything = GameObject.Find("Everything");
-		//everything.transform.Translate (new Vector3(0, 0, -rowsSpawnedSinceCleanup*tileLength));
-		//spawnLocation -= (int)(rowsSpawnedSinceCleanup * tileLength);
-		rowsSpawnedSinceCleanup = 0;
 	}
 
-	// Update is called once per frame
+	// Update is called once per frames
 	void Update () {
 		if (garbageTiles.Count > 0 && garbageColliders.Count > 0) {
 			Cleanup();
+		}
+
+		if (rowsSpawnedSinceCleanup > MAX_ROWS) {
+			print("resetting position");
+			GameObject everything = GameObject.Find("Everything");
+			everything.transform.Translate (new Vector3(0, 0, -rowsSpawnedSinceCleanup*tileLength));
+			spawnLocation -= (int)(rowsSpawnedSinceCleanup * tileLength);
+			rowsSpawnedSinceCleanup = 0;
 		}
 
 		if (marbleTransform.position.z >= spawnLocation - drawDistance) {
