@@ -197,7 +197,6 @@ GameObject:
   - 222: {fileID: 392242394}
   - 114: {fileID: 392242393}
   - 114: {fileID: 392242392}
-  - 114: {fileID: 392242391}
   m_Layer: 5
   m_Name: Play Again
   m_TagString: Untagged
@@ -205,23 +204,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &392242391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 392242390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97ba3b8bdc8832442be44f065c74190a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  native_width: 1920
-  native_height: 1080
-  score_text: {fileID: 0}
-  name_text: {fileID: 0}
-  highscore: 0
-  highscore_display: {fileID: 0}
 --- !u!114 &392242392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +243,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 392242391}
+      - m_Target: {fileID: 1923486960}
         m_MethodName: change_level
         m_Mode: 5
         m_Arguments:
@@ -269,7 +251,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Portals
+          m_StringArgument: level_select
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -330,7 +312,6 @@ GameObject:
   - 224: {fileID: 717946896}
   - 222: {fileID: 717946898}
   - 114: {fileID: 717946897}
-  - 114: {fileID: 717946899}
   m_Layer: 5
   m_Name: Background_Image
   m_TagString: Untagged
@@ -382,23 +363,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717946895}
---- !u!114 &717946899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 717946895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97ba3b8bdc8832442be44f065c74190a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  native_width: 1920
-  native_height: 1080
-  score_text: {fileID: 812786600}
-  name_text: {fileID: 1984439304}
-  highscore: 0
-  highscore_display: {fileID: 1781794736}
 --- !u!1 &812786598
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +504,6 @@ GameObject:
   - 222: {fileID: 1111446394}
   - 114: {fileID: 1111446393}
   - 114: {fileID: 1111446392}
-  - 114: {fileID: 1111446391}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -566,23 +529,6 @@ RectTransform:
   m_AnchoredPosition: {x: -292, y: -612}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &1111446391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111446389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97ba3b8bdc8832442be44f065c74190a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  native_width: 1920
-  native_height: 1080
-  score_text: {fileID: 0}
-  name_text: {fileID: 0}
-  highscore: 0
-  highscore_display: {fileID: 0}
 --- !u!114 &1111446392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +568,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1111446391}
+      - m_Target: {fileID: 1923486960}
         m_MethodName: change_level
         m_Mode: 5
         m_Arguments:
@@ -721,7 +667,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1491667615
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +760,7 @@ RectTransform:
   - {fileID: 392242395}
   - {fileID: 1111446390}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1028,6 +974,51 @@ RectTransform:
   m_AnchoredPosition: {x: -547, y: -150}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
+--- !u!1 &1923486959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1923486961}
+  - 114: {fileID: 1923486960}
+  m_Layer: 0
+  m_Name: ScoreboardScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1923486960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923486959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ba3b8bdc8832442be44f065c74190a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  native_width: 1920
+  native_height: 1080
+  score_text: {fileID: 812786600}
+  name_text: {fileID: 1984439304}
+  highscore: 0
+  highscore_display: {fileID: 1781794736}
+--- !u!4 &1923486961
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923486959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 67.0432739, y: 156.081604, z: 7.52978516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &1968497231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,4 +1268,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2

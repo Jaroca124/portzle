@@ -26,6 +26,12 @@ public class scoreboard_script : MonoBehaviour {
             highscore = current_score;
             PlayerPrefs.SetInt("High_Score", current_score);
         }
+		if(highscore_display) {
+			print ("Jake's butt");
+		} else {
+			print ("fuck");
+		}
+
         highscore_display.text = "High Score: " + highscore;
     }
 
@@ -34,8 +40,8 @@ public class scoreboard_script : MonoBehaviour {
         float buttonWidth = Screen.width / 4;
         float buttonHeight = buttonWidth;
 
-        score_text.text = UpdateScore.GAME_score.ToString();
-        name_text.text = add_name.username.ToString();
+       // score_text.text = UpdateScore.GAME_score.ToString();
+     //   name_text.text = add_name.username.ToString();
     }
 
     public void change_level(string level_name)
