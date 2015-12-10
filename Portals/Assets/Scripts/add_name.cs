@@ -14,7 +14,12 @@ public class add_name : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        username = input.text;
+        if (input) {
+			print ("cock");
+			// username = input.text;
+		} else {
+			print ("notcock");
+		}
 	}
 
     public void change_level(string level_name)
