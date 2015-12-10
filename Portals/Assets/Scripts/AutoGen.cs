@@ -108,7 +108,7 @@ public class AutoGen : MonoBehaviour {
 					lane = (GameObject)Instantiate (wedgeTile,
 					                                new Vector3 (tileXPos, worldYPos, zPosition),
 					                                Quaternion.identity);
-					int[] arc =  {2,5,6,5,4};
+					int[] arc =  {3,5,6,5,4};
 					for(int i = 0; i < 5; i++) {
 						float zCoord = zPosition + i*2 + 1;
 						GameObject star = (GameObject) Instantiate (Star1, new Vector3 (tileXPos, arc[i], zCoord),

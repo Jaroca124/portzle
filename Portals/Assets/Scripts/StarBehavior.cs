@@ -10,8 +10,7 @@ public class StarBehavior : MonoBehaviour {
 		
 	}
 	void Update() {
-		this.gameObject.transform.Rotate(0, 0, 
-		                                 200*Time.deltaTime);
+		this.gameObject.transform.Rotate(0, 200*Time.deltaTime, 0);
 	}
 
 	void OnTriggerEnter(Collider other){
