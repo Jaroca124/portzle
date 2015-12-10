@@ -34,10 +34,10 @@ public class PlayerController : MonoBehaviour {
 	// Move the marble here
 	void FixedUpdate () 
 	{
-
+		/*
 		if (this.gameObject.transform.position.y < -10) {
 			Application.LoadLevel("scoreboard");
-		}
+		} */
 		float moveHorizontal = 0;
 
 		#if UNITY_IOS

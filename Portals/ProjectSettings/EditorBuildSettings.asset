@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/name_screen.unity
   - enabled: 1
     path: Assets/level_select.unity
+  - enabled: 1
+    path: Assets/Level2.unity
