@@ -26,11 +26,6 @@ public class scoreboard_script : MonoBehaviour {
             highscore = current_score;
             PlayerPrefs.SetInt("High_Score", current_score);
         }
-		if(highscore_display) {
-			print ("Jake's butt");
-		} else {
-			print ("fuck");
-		}
 
         highscore_display.text = "High Score: " + highscore;
     }

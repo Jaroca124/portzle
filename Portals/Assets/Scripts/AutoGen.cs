@@ -137,13 +137,12 @@ public class AutoGen : MonoBehaviour {
 		
 		rowsSpawnedSinceCleanup++;
 	}
-	
+
+
 	void Cleanup() {
-		//print ("taking out the trash....");
-		
 		BoxCollider bc = garbageColliders.Peek ().GetComponent<BoxCollider>();
 		while((bc.bounds.center.z + (bc.bounds.extents.z)) < marbleTransform.position.z - 1) {
-			print ("DESTROYING COLLIDER");
+
 			Destroy (garbageColliders.Dequeue());
 			if(garbageColliders.Count == 0) {
 				break;
@@ -167,7 +166,6 @@ public class AutoGen : MonoBehaviour {
 		}
 		
 		if (rowsSpawnedSinceCleanup > MAX_ROWS) {
-			print("resetting position");
 			GameObject everything = GameObject.Find("Everything");
 			everything.transform.Translate (new Vector3(0, 0, -rowsSpawnedSinceCleanup*tileLength));
 			spawnLocation -= (int)(rowsSpawnedSinceCleanup * tileLength);
