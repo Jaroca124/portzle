@@ -543,7 +543,7 @@ section {
     -o-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 3000px;
+    height: auto;
     margin: 0px;
     padding: 0px;
 }
@@ -861,7 +861,7 @@ section {
     -o-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 2200px;
+    height: auto;
     margin: 0px;
     padding: 0px;
 }
