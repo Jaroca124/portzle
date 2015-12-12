@@ -40,11 +40,13 @@ public class PlayerController : MonoBehaviour {
 		float moveHorizontal = 0;
 
 		#if UNITY_IOS
+		/*
 		if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Moved)) {
 			Vector2 touchPosDelta = Input.GetTouch(0).deltaPosition;
 			moveHorizontal = touchPosDelta.x/10;
-
 		}
+		*/
+		moveHorizontal = Input.acceleration.x * 2;
 		#endif
 
 		#if UNITY_EDITOR
