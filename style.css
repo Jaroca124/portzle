@@ -291,7 +291,7 @@ section {
 }
 
 #references_list {
-    height: 100%;
+    height: auto;
     width: 100%;
     float: left;
     display: block;
@@ -519,16 +519,17 @@ section {
 }
 
 .picture_size {
-    height: 50%;
-    width: 50%;
+    height: 25%;
+    width: 25%;
 }
 
 .name_bio {
     height: auto;
-    width: 100%;
+    width: 70%;
     display: block;
     float: none;
     position: relative;
+    margin: 0 auto;
     margin-top: 2%;
     right: 0%;
     color: white;
@@ -544,6 +545,7 @@ section {
     background-repeat: no-repeat;
     height: 3000px;
     margin: 0px;
+    padding: 0px;
 }
 
 .overlay2 {
@@ -579,7 +581,7 @@ section {
     padding: 0px;
     position: relative;
     float: none;
-    width: 100%;
+    width: 80%;
     height: auto;
     margin-bottom: 120px;
 }
@@ -619,7 +621,7 @@ section {
     padding: 0px;
     position: relative;
     float: none;
-    width: 100%;
+    width: 80%;
     height: auto;
 }
     
@@ -631,7 +633,7 @@ section {
 }
     
 }
-@media only screen and (min-height: 0px) and (max-height: 560px)  {
+@media only screen and (min-height: 0px) and (max-height: 630px)  {
     
 #header {
 	height: 80px;
@@ -831,23 +833,25 @@ section {
     display: block;
     float: none;
     position: relative;
-    margin-top: 2%;
+    margin-top: 0%;
 }
 
 .picture_size {
-    height: 50%;
-    width: 50%;
+    height: 25%;
+    width: 25%;
 }
 
 .name_bio {
     height: auto;
-    width: 100%;
+    width: 70%;
     display: block;
     float: none;
     position: relative;
+    margin: 0 auto;
     margin-top: 2%;
     right: 0%;
     color: white;
+    margin-bottom: 50px;
 }
 
 #two {
@@ -859,6 +863,7 @@ section {
     background-repeat: no-repeat;
     height: 2200px;
     margin: 0px;
+    padding: 0px;
 }
 
 .overlay2 {
@@ -894,7 +899,7 @@ section {
     padding: 0px;
     position: relative;
     float: none;
-    width: 100%;
+    width: 80%;
     height: auto;
     margin-bottom: 120px;
 }
@@ -934,7 +939,7 @@ section {
     padding: 0px;
     position: relative;
     float: none;
-    width: 100%;
+    width: 80%;
     height: auto;
 }
 
@@ -955,7 +960,8 @@ section {
     padding: 10px;
     background-color: azure;
     margin: 0 auto;
-    display: block;
+    display: none;
+    margin-top: 400px;
 }
 
 #button_text {
