@@ -1,6 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
-
 
 public class PlayerController : MonoBehaviour {
 
@@ -22,13 +22,15 @@ public class PlayerController : MonoBehaviour {
 	public bool darkTop = true;
 	public bool grounded = false;
 
+	private bool tilt = false;
+
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody> ();
 		playerCollider = GetComponent<SphereCollider> ();
 		darkCamera = GameObject.Find("Dark Camera");
 		lightCamera = GameObject.Find ("Light Camera");
-
+		tilt = Tilt.tiltOn;
 	}
 
 	// Move the marble here
@@ -40,13 +42,16 @@ public class PlayerController : MonoBehaviour {
 		float moveHorizontal = 0;
 
 		#if UNITY_IOS
-		/*
-		if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Moved)) {
-			Vector2 touchPosDelta = Input.GetTouch(0).deltaPosition;
-			moveHorizontal = touchPosDelta.x/10;
+		
+		if (!tilt) {
+			if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Moved)) {
+				Vector2 touchPosDelta = Input.GetTouch(0).deltaPosition;
+				moveHorizontal = touchPosDelta.x/10;
+			}
+		} else {
+			moveHorizontal = Input.acceleration.x * 2;
 		}
-		*/
-		moveHorizontal = Input.acceleration.x * 2;
+
 		#endif
 
 		#if UNITY_EDITOR
