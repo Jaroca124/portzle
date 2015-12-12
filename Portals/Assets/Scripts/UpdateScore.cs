@@ -6,9 +6,16 @@ public class UpdateScore : MonoBehaviour {
 
 	Text text;
 	static public int GAME_score;
-	// Use this for initialization
-	void Start () {
-		text = GetComponent <Text> ();
+    // Use this for initialization
+
+    void Awake()
+    {
+        text = GetComponent<Text>();
+        GAME_score = 0;
+    }
+
+    void Start () {
+		
 	}
 	
 	// Update is called once per frame
