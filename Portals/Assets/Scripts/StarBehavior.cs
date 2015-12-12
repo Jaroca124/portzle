@@ -6,16 +6,15 @@ public class StarBehavior : MonoBehaviour {
 	public float smooth = 100.0F;
 	public float tiltAngle = 90.0F;
 	public float scale = 0.5F;
-	public AudioSource aSource;
+	private AudioSource aSource;
 	public AudioClip pickupSound;
 
 	void Start () {
-		aSource = GetComponent<AudioSource>();	
 	}
 
-	void Awaker() {
-		aSource = GetComponent<AudioSource>();	
+	void Awake() {
 	}
+
 
 	void Update() {
 		this.gameObject.transform.Rotate(0, 200*Time.deltaTime, 0);
@@ -24,8 +23,9 @@ public class StarBehavior : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 
 		if (pickupSound) {
-			aSource.PlayOneShot(pickupSound);
+			AudioSource.PlayClipAtPoint(pickupSound, transform.position);
 		}
+
 		Destroy (this.gameObject);
 	}
 }

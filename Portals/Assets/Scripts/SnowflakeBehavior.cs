@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class SnowflakeBehavior : MonoBehaviour {
-	
+
+	public AudioClip pickupSound;
+
 	public float smooth = 100.0F;
 	public float tiltAngle = 90.0F;
 	public float scale = 0.5F;
@@ -18,6 +20,9 @@ public class SnowflakeBehavior : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter(Collider other){
+		if (pickupSound) {
+			AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+		}
 		Destroy (this.gameObject);
 		//score += 5;
 	}
