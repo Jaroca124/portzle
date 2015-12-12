@@ -2065,8 +2065,7 @@ MonoBehaviour:
   smooth: 100
   tiltAngle: 90
   scale: .5
-  aSource: {fileID: 0}
-  pickupSound: {fileID: 8300000, guid: 08a94e387bbbd48a4822e9e20182cb12, type: 3}
+  pickupSound: {fileID: 8300000, guid: aa0a0799281114f50ab24e88d1541d98, type: 3}
 --- !u!65 &1140021537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2088,11 +2087,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 08a94e387bbbd48a4822e9e20182cb12, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .689999998
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
