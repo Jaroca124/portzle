@@ -6,6 +6,9 @@ public class UpdateScore : MonoBehaviour {
 
 	Text text;
 	static public int GAME_score;
+    private float nextScoreTime;
+    private int scorePeriod = 1;
+    private int scoreAmount = 1;
     // Use this for initialization
 
     void Awake()
@@ -20,7 +23,11 @@ public class UpdateScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GAME_score++;
-		text.text = "Score: " + GAME_score;
+        if (Time.time > nextScoreTime)
+        {
+            GAME_score += scoreAmount;
+            nextScoreTime += scorePeriod;
+            text.text = "Score: " + GAME_score;
+        }
 	}
 }

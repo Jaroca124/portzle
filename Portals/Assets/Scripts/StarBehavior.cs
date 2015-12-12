@@ -25,7 +25,7 @@ public class StarBehavior : MonoBehaviour {
 		if (pickupSound) {
 			AudioSource.PlayClipAtPoint(pickupSound, transform.position);
 		}
-
-		Destroy (this.gameObject);
+        UpdateScore.GAME_score += 5;
+        Destroy (this.gameObject);
 	}
 }
