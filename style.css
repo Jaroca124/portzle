@@ -947,3 +947,23 @@ section {
     
 }
 
+
+#githublink_button {
+    border-radius: 100%;
+    height: auto;
+    width: 150px;
+    padding: 10px;
+    background-color: azure;
+    margin: 0 auto;
+    display: block;
+}
+
+#button_text {
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+#github_link {
+    margin-top: 600px;
+    text-decoration: none;
+}
