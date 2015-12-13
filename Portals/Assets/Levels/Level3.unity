@@ -579,6 +579,10 @@ Prefab:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ba2ad16784e1bf345bd347541176af0e, type: 3}
+      propertyPath: m_Name
+      value: Cactus
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba2ad16784e1bf345bd347541176af0e, type: 3}
   m_IsPrefabParent: 0

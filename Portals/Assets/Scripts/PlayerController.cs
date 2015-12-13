@@ -120,8 +120,12 @@ public class PlayerController : MonoBehaviour {
 		} else if (collision.collider.gameObject.name == "trampoline") {
 			rb.AddForce(new Vector3(0, 100, 0));
 		} else if(collision.collider.gameObject.name == "Rock") {
-			//Application.LoadLevel("main_menu");
-		}		
+			Application.LoadLevel("main_menu");
+		} else if(collision.collider.gameObject.name == "Snowman") {
+			Application.LoadLevel("main_menu");
+		} else if(collision.collider.gameObject.name == "Cactus") {
+			Application.LoadLevel("main_menu");
+		}						
 	}
 
 	void OnCollisionStay (Collision collision) {
