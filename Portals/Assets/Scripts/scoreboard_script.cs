@@ -16,6 +16,7 @@ public class scoreboard_script : MonoBehaviour {
     void Start()
     {
         highscore = PlayerPrefs.GetInt("High_Score");
+        score_text.text = current_score.ToString();
     }
 
     // Update is called once per frame
@@ -34,9 +35,6 @@ public class scoreboard_script : MonoBehaviour {
     {
         float buttonWidth = Screen.width / 4;
         float buttonHeight = buttonWidth;
-
-       // score_text.text = UpdateScore.GAME_score.ToString();
-     //   name_text.text = add_name.username.ToString();
     }
 
     public void change_level(string level_name)

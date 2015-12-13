@@ -6,7 +6,7 @@ public class Portal : MonoBehaviour {
 	public int toPortalId = 0;
 	// Use this for initialization
 	void Start () {
-        UpdateScore.GAME_score = 0;
+       
     }
 	
 	public Vector3 getToPortalCoords() {
