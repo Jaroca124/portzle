@@ -1316,6 +1316,42 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 4290725193
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key0.rgba
+      value: 4287433984
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key1.rgba
+      value: 4294384893
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: SubModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823042, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b76345e3d6b54cd6a01480fd96510cd, type: 2}
   m_IsPrefabParent: 0
@@ -2322,7 +2358,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6580448, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 403618, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
       propertyPath: m_LocalScale.y
@@ -2835,6 +2871,10 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 1.66999996
       objectReference: {fileID: 0}
+    - target: {fileID: 6568800, guid: 69404823b6a314d3cb8129424a6ab523, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69404823b6a314d3cb8129424a6ab523, type: 2}
   m_IsPrefabParent: 0
@@ -3099,8 +3139,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .483414501, y: 1.25700474, z: .751012206}
-  m_Center: {x: .0342289656, y: .629196346, z: .000280037493}
+  m_Size: {x: .382808387, y: .743867636, z: .751012206}
+  m_Center: {x: -.0160745941, y: .372629404, z: .0002800152}
 --- !u!1001 &2007097264
 Prefab:
   m_ObjectHideFlags: 0

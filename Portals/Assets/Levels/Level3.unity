@@ -583,7 +583,8 @@ Prefab:
       propertyPath: m_Name
       value: Cactus
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6400000, guid: ba2ad16784e1bf345bd347541176af0e, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ba2ad16784e1bf345bd347541176af0e, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &311454606
@@ -3494,3 +3495,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &2116661096 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ba2ad16784e1bf345bd347541176af0e, type: 3}
+  m_PrefabInternal: {fileID: 287923775}
+--- !u!65 &2116661099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116661096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .349169195, y: .520459473, z: .25146544}
+  m_Center: {x: -.0667425096, y: .259754181, z: -.0132651692}
