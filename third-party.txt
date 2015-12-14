@@ -1,0 +1,21 @@
+Refrences:
+
+Marble Background: http://wallarthd.com/imagepics/beautiful-clear-marble-on-the-wood-wallpaper-high-resolution.html/beautiful-clear-marble-on-the-wood-wallpaper-high-resolution
+Bio Background: http://wallarthd.com/imagepics/best-clear-marble-wallpaper-background.html
+Instructions Background: http://images4.alphacoders.com/106/106704.jpg
+References Background : http://wallpaperdj.com/view-warp_drive-1920x1200.html
+Portal Asset: https://www.google.com/searchq=portal&espv=2&biw=1600&bih=775&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiWv9KujtXJAhXEGh4KHW0OA8gQ_AUIBigB#imgrc=hg3kwNOm_a9NxM%3A
+Scoring Tutorial: http://answers.unity3d.com/questions/8572/how-to-increase-score-incrementally-over-time.html
+Unity Store Assets:
+Cactus Pack by Sandro Tatinashvili
+Free Christmas Assets by Brainbox
+Free Christmas presents by Brainbox
+Coin Dollarbag and Gold by David Villa
+Cope! Free Skybox Pack by 70:30
+Fantasy Skybox Free by G.E.TeamDev
+Rocks and Boulders 2 by Manufactura K4
+Yughes Free Sand Materials by Yughues
+Free Seamless Textures - UV Motion
+free hats for uma - sliced studio
+All sounds were created by Thomas Colgrove or were sampled from freesound.org
+Generally, we'd like to thank online Unity tutorials and forums for aiding us in this project.
