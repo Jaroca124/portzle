@@ -16,6 +16,7 @@ public class MoneyBag : MonoBehaviour {
 
 	void OnTriggerEnter() {
 		AudioSource.PlayClipAtPoint (kaChing, transform.position);
+		UpdateScore.GAME_score += 100;
 		Destroy (this.gameObject);
 	}
 }
