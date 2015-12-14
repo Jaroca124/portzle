@@ -594,6 +594,7 @@ section {
     -o-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 900px;
 }
 
 #references_wrapper {
@@ -606,7 +607,7 @@ section {
 }
 
 #references_list {
-    height: 100%;
+    height: auto;
     width: 100%;
     float: left;
     display: block;
@@ -942,7 +943,7 @@ section {
 }
 
 #references_list {
-    height: 100%;
+    height: auto;
     width: 100%;
     float: left;
     display: block;
