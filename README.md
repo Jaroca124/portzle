@@ -2,10 +2,10 @@
 This is the repository for Portzle, the 2nd project for Comp23 Game Development.
 
 Developers:
--Thomas Colgrove
--Jacob Caccamo
--Samantha Welch
--Mike Yeung
+- Thomas Colgrove
+- Jacob Caccamo
+- Samantha Welch
+- Mike Yeung
 
 Description:
 - Portzle is an infinite "roller" involving split-second decisions and attention to detail.
