@@ -24,6 +24,6 @@ public class SnowflakeBehavior : MonoBehaviour {
 			AudioSource.PlayClipAtPoint(pickupSound, transform.position);
 		}
 		Destroy (this.gameObject);
-		UpdateScore.GAME_score += 5;
+		UpdateScore.GAME_score += 10;
 	}
 }

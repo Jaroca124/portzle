@@ -4,7 +4,7 @@ using System.Collections;
 
 public class UpdateScore : MonoBehaviour {
 
-	Text text;
+	Text scoretext;
 	static public int GAME_score;
     private float nextScoreTime;
     private int scorePeriod = 1;
@@ -13,9 +13,13 @@ public class UpdateScore : MonoBehaviour {
 
     void Awake()
     {
-        text = GetComponent<Text>();
+		scoretext = GetComponent<Text>();
         GAME_score = 0;
-    }
+		//xloc = 0.52F * Screen.width;
+		//float yloc = 0.3478F * Screen.height;
+		//scoretext.transform.position.x = xloc;
+		//scoretext.transform.position.y = yloc;
+	}
 
     void Start () {
 		
@@ -27,7 +31,7 @@ public class UpdateScore : MonoBehaviour {
         {
             GAME_score += scoreAmount;
             nextScoreTime += scorePeriod;
-            text.text = "Score: " + GAME_score;
+            scoretext.text = "Score: " + GAME_score;
         }
 	}
 }
