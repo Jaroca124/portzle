@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody rb;
 
 	public AudioClip rollSound;
+	public AudioClip collisionSound;
 	public AudioSource roll;
 
 	private SphereCollider playerCollider;
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 		transform.position = warpLocation;
 		Vector3 popOut = new Vector3 (0, popOutY, 0);
 		rb.AddForce(popOut);
-		Collisions.IgnoreCollisionWithGroup (playerCollider, "Surfaces", true);
+		Collisions.IgnoreCollisionWithGroup (playerCollider, "Colliders", true);
 		Collisions.IgnoreCollisionWithGroup (playerCollider, "Portals", true);
 
 		cloneCollider.enabled = false;
@@ -118,16 +119,23 @@ public class PlayerController : MonoBehaviour {
 		if (collision.collider.gameObject.name == "Wedge") {
 			rb.AddForce(new Vector3(0, 0, 100));
 		} else if (collision.collider.gameObject.name == "trampoline") {
-			rb.AddForce(new Vector3(0, 100, 0));
+			rb.AddForce(new Vector3(0, 300, 0));
 		} else if(collision.collider.gameObject.name == "Rock") {
-			Application.LoadLevel("main_menu");
+			CollideWithDeadlyObject();
 		} else if(collision.collider.gameObject.name == "Snowman") {
-			Application.LoadLevel("main_menu");
+			CollideWithDeadlyObject();
 		} else if(collision.collider.gameObject.name == "Cactus") {
-			Application.LoadLevel("main_menu");
-		}						
+			CollideWithDeadlyObject();
+		}				
 	}
 
+	void CollideWithDeadlyObject() {
+		Collisions.IgnoreCollisionWithGroup (playerCollider, "Colliders", true);
+
+		if (collisionSound) {
+			AudioSource.PlayClipAtPoint (collisionSound, transform.position);
+		}
+	}
 	void OnCollisionStay (Collision collision) {
 		if (collision.contacts[0].normal.y > 0) {
 			grounded = true;
@@ -169,7 +177,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerExit (Collider other) {
 
 		if (other.gameObject.name == "ExitWindow") {
-			Collisions.IgnoreCollisionWithGroup (playerCollider, "Surfaces", false);
+			Collisions.IgnoreCollisionWithGroup (playerCollider, "Colliders", false);
 			if(!inPortalTransition) {
 				Collisions.IgnoreCollisionWithGroup (playerCollider, "Portals", false);
 			}

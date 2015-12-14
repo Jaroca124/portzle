@@ -2775,6 +2775,10 @@ Prefab:
       propertyPath: roll
       value: 
       objectReference: {fileID: 961464189}
+    - target: {fileID: 11491664, guid: 99f002bfb33534479bf451248a6dad0e, type: 2}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 51f1b4454317944c095c59991c8fe0d7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99f002bfb33534479bf451248a6dad0e, type: 2}
   m_IsPrefabParent: 0

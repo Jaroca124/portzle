@@ -3044,6 +3044,10 @@ Prefab:
       propertyPath: roll
       value: 
       objectReference: {fileID: 961464189}
+    - target: {fileID: 11491664, guid: 99f002bfb33534479bf451248a6dad0e, type: 2}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 51f1b4454317944c095c59991c8fe0d7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99f002bfb33534479bf451248a6dad0e, type: 2}
   m_IsPrefabParent: 0
@@ -3139,8 +3143,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .382808387, y: .743867636, z: .751012206}
-  m_Center: {x: -.0160745941, y: .372629404, z: .0002800152}
+  m_Size: {x: .382808387, y: .743867636, z: .199793637}
+  m_Center: {x: -.0160746444, y: .372629404, z: .201644719}
 --- !u!1001 &2007097264
 Prefab:
   m_ObjectHideFlags: 0
@@ -3202,7 +3206,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6580448, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 403618, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
       propertyPath: m_LocalScale.y
