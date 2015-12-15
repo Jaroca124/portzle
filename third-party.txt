@@ -17,5 +17,9 @@ Rocks and Boulders 2 by Manufactura K4
 Yughes Free Sand Materials by Yughues
 Free Seamless Textures - UV Motion
 free hats for uma - sliced studio
-All sounds were created by Thomas Colgrove or were sampled from freesound.org
+All sounds were created by Thomas Colgrove in Apple Logic or were sampled from freesound.org
+
+Special Thanks to Fred Durst for Rollin' 
+Its fair use because Education
+
 Generally, we'd like to thank online Unity tutorials and forums for aiding us in this project.
