@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4c3cab96e93774f43ae92b3c2f8c99b1
+timeCreated: 1447445603
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - marbleTransform: {instanceID: 0}
+  - tileWithPortal: {fileID: 166614, guid: 40076f2e813c342ffa4fad67653e5001, type: 2}
+  - tileRed: {fileID: 152382, guid: ba8b180a8e31044aa96f5caa5cb121f0, type: 2}
+  - tileGreen: {fileID: 145280, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
+  - tileBlue: {fileID: 135412, guid: 549d8be6d48524ee19b45c10adb3fcd3, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
