@@ -13,16 +13,16 @@ public class UpdateScore : MonoBehaviour {
 
     void Awake()
     {
-		scoretext = GetComponent<Text>();
-        GAME_score = 0;
-		//xloc = 0.52F * Screen.width;
-		//float yloc = 0.3478F * Screen.height;
-		//scoretext.transform.position.x = xloc;
-		//scoretext.transform.position.y = yloc;
+
 	}
 
     void Start () {
-		
+		scoretext = GetComponent<Text>();
+		GAME_score = 0;
+		float xloc = Screen.width/2;
+		float yloc = Screen.height - (0.05F * Screen.height);
+		scoretext.transform.position = new Vector2 (xloc, yloc);
+
 	}
 	
 	// Update is called once per frame

@@ -37,6 +37,9 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -65,7 +68,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -296,7 +298,8 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6503772, guid: e58f997bc28004ff883afba5aa6a6f27, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e58f997bc28004ff883afba5aa6a6f27, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &120411336
@@ -328,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ForceModuleActive: 0
+  m_AllowActivationOnStandalone: 0
 --- !u!114 &120411338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +349,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_ForceModuleActive: 0
+  m_AllowActivationOnMobileDevice: 0
 --- !u!114 &120411339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +671,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1038,7 +1040,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1138,7 +1139,8 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fc29c6feb50774bf2931c526132a5f19, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6532982, guid: 8019d74980d694165af77ffb18de5f30, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8019d74980d694165af77ffb18de5f30, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &622165385 stripped
@@ -1170,14 +1172,14 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 630533310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 52.9000015}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1643864170}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 120, y: 120}
+  m_AnchoredPosition: {x: 0, y: 150}
   m_SizeDelta: {x: 159, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &630533312
@@ -1193,20 +1195,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -1709,7 +1705,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -2122,7 +2117,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -2399,7 +2393,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 339350719}
   - 33: {fileID: 1272290630}
-  - 65: {fileID: 1272290629}
   - 23: {fileID: 1272290628}
   - 114: {fileID: 1272290627}
   m_Layer: 0
@@ -2465,19 +2458,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1272290629
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6523186, guid: 60af8aa94e4924763b7f0a68fe73b068,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1272290626}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1272290630
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2553,7 +2533,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -2655,7 +2634,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -2837,7 +2815,8 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6580448, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1384573133
@@ -3314,7 +3293,8 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 1.66999996
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6568800, guid: 69404823b6a314d3cb8129424a6ab523, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 69404823b6a314d3cb8129424a6ab523, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1881169869 stripped
@@ -3557,7 +3537,8 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6580448, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: aec2fd0f2a036469da89567f3ebdf88a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2039375729
